@@ -1,4 +1,5 @@
 class ToysController < ApplicationController 
+    before_filter :authorize, only: [:edit, :update]
 
     def index
         @toys = Toy.all 
