@@ -4,4 +4,12 @@ class ToysController < ApplicationController
         @toys = Toy.all 
     end
 
+    def new
+        @toy = Toy.new 
+
+    end
+
+    def create 
+    end
+
 end
