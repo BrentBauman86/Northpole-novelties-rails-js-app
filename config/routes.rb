@@ -7,7 +7,11 @@ get 'logout', to: 'sessions#destroy', as: 'logout'
 resources :sessions
 resources :users 
 
+
 root to: "toys#index"
-resources :toys 
+
+resources :categories  
+  resources :toys 
+  
 end
 
