@@ -1,0 +1,12 @@
+.top-padding {
+    padding-top: 200px;
+}
+
+div.bottom-padding {
+    padding-bottom: 50px;
+}
+
+.center {
+    text-align: center;
+    color: red;
+}
