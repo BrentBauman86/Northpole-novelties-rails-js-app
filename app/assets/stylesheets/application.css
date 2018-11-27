@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ div.corners {
+    border-radius: 500px;
+    background: 73AD21;
+    max-width: 1000px;
+    height: 20px; 
+    background-color:rgb(173, 223, 230)
+}
+
+.link-to-color {
+    color:rgb(230, 100, 100);
+}
