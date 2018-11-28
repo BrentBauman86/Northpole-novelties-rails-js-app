@@ -5,11 +5,9 @@
   <div class='center'>
     <div class="error_messages">
       <h2>Form is invalid</h2>
-      <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
-      </ul>
       </div>
     </div>
   <% end %>
