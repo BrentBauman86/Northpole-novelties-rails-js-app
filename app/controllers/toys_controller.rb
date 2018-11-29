@@ -7,7 +7,6 @@ class ToysController < ApplicationController
 
     def new
         @toy = Toy.new 
-
     end
 
     def create 

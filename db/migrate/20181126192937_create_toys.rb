@@ -5,6 +5,8 @@ class CreateToys < ActiveRecord::Migration[5.2]
       t.string :materials
       t.integer :quantity
       t.integer :rating 
+      t.integer :user_id
+      t.integer :category_id
 
       t.timestamps
     end

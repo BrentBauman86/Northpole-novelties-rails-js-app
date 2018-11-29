@@ -10,8 +10,8 @@ resources :users
 
 root to: "toys#index"
 
-resources :categories  
+resources :categories do 
   resources :toys 
-  
+  end 
 end
 
