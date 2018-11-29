@@ -12,10 +12,20 @@
       </div>
       <%end%>
 
+      <div class="form-horizontal">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      </div>
+      <br>
     <div class="form-horizontal">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :work_ethic %>
+    <%= f.text_field :work_ethic %>
     </div>
+    <br>
+    <div class="form-horizontal">
+    <%= f.label :admin, "Check box if you are Santa" %>
+    <%= f.check_box :admin, class: "form-check-input" %>
+  </div>
   <br>
   <div class="form-horizontal">
     <%= f.label :password %>
