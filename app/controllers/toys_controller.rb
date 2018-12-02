@@ -13,6 +13,3 @@ class ToysController < ApplicationController
     end
 
 end
-
-
-# okokokokok
