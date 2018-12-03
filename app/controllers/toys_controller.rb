@@ -1,12 +1,13 @@
 class ToysController < ApplicationController 
-    before_action :authorize, only: [:edit, :update, :create]
+    before_action :authorize, only: [:edit, :update]
 
     def index
         @toys = Toy.all 
     end
 
     def new
-        @toy = Toy.new 
+        @category = Category.find params[:category_id]
+        @toy = Toy.new(category: @category)
     end
 
     def create 
