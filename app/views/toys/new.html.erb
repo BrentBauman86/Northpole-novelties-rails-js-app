@@ -1,5 +1,17 @@
 <h1>Build a New Toy</h1>
 
+<%= form_for [@category, @toy] do |f| %>
+    <% if @toy.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @toy.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= form_for [@category, @toy] do |f| %>
       <div class="form-horizontal">
       <%= f.label :name %>
@@ -22,5 +34,6 @@
     </div>
     <br>
   <div class="actions"><%= f.submit "Build Toy!" %></div>
+    <%end%>
     <%end%>
   <br>

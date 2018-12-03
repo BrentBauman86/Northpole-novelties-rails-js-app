@@ -8,7 +8,7 @@ resources :sessions
 resources :users 
 
 
-root to: "toys#index"
+root to: "categories#index"
 
 resources :categories do 
   resources :toys 
