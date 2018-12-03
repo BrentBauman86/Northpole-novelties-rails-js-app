@@ -1,6 +1,6 @@
 class ToysController < ApplicationController 
-    before_action :authorize, only: [:edit, :update, :create]
-
+    before_action :authorize, only: [:edit, :update]
+    
     def index
         @toys = Toy.all 
     end
@@ -10,10 +10,22 @@ class ToysController < ApplicationController
         @toy = Toy.new(category: @category)
     end
 
-    def create 
+    def create
         @toy = Toy.new(toy_params)
+        @toy.user = current_user
+        @toy.category.each { |r| r.user = current_user }
+      
+        if @toy.save
+            redirect_to category_toys_path,  notice: "Thanks for building me"
+          else
+            redirect_to new_category_toy_path, :notice => "Error, try that again"
+          end
+      end
+
+    def create 
+        @toy = current_user.toys.create(toy_params)
         if @toy.save 
-            redirect_to category_toys_path,  notice: "Thanks for building me dick"
+            redirect_to category_toys_path,  notice: "Thanks for building me"
         else
             redirect_to new_category_toy_path
         end  

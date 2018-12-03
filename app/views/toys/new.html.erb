@@ -12,7 +12,6 @@
       </div>
     <% end %>
 
-    <%= form_for [@category, @toy] do |f| %>
       <div class="form-horizontal">
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -30,10 +29,14 @@
   <br>
   <div class="form-horizontal">
     <%= f.label :rating %>
-    <%= f.text_field :rating %>
+    <%= f.number_field :rating %>
     </div>
     <br>
-  <div class="actions"><%= f.submit "Build Toy!" %></div>
-    <%end%>
+    <label for="toy_category_id">Category:</label><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "Select a Category" %>
+    or create one:
+    <%= f.text_field :name %>
+  </p>
+  <div class="actions"><%= f.submit "Build Toy into new category!" %></div>
     <%end%>
   <br>
