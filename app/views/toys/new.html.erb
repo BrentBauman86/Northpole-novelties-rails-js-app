@@ -1,0 +1,37 @@
+<h1>Build a New Toy</h1>
+
+<%= form_for @toy do |f| %>
+    <% if @user.errors.any? %>
+    <div class='center'>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+          <% @toy.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </div>
+      </div>
+      <%end%>
+
+      <div class="form-horizontal">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      </div>
+      <br>
+    <div class="form-horizontal">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+    </div>
+    <br>
+    <div class="form-horizontal">
+    <%= f.label :materials %>
+    <%= f.text_field :materials%>
+  </div>
+  <br>
+  <div class="form-horizontal">
+    <%= f.label :rating %>
+    <%= f.password_field :rating %>
+    </div>
+    <br>
+  <div class="actions"><%= f.submit "Build Toy!" %></div>
+    <%end%>
+  <br>
