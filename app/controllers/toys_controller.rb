@@ -31,9 +31,20 @@ class ToysController < ApplicationController
         end  
     end
 
+    def show 
+        @toy = Toy.find(params[:id])
+    end
+
+    def delete 
+        @toy = Toy.find(params[:id])
+        @toy.destroy 
+
+        redirect_to categories_path 
+    end
+
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :materials, :quantity, :rating)
+        params.require(:toy).permit(:name, :materials, :quantity, :rating, category_attributes: [:name])
     end 
 end
