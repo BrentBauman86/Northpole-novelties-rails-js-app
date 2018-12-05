@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 
+gem 'dotenv-rails'
+
 gem 'omniauth-facebook'
 
 # Use ActiveStorage variant
