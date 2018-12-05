@@ -33,7 +33,7 @@ class ToysController < ApplicationController
     end
 
     def show 
-        @toy = Toy.toy_name(0) 
+        @toy = Toy.toy_name(params[:toy_name])
     end
 
     def delete 
