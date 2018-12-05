@@ -1,6 +1,7 @@
 class ToysController < ApplicationController 
     before_action :authorize, only: [:edit, :update]
-    
+
+
     def index
         @toys = Toy.all 
     end
@@ -32,7 +33,7 @@ class ToysController < ApplicationController
     end
 
     def show 
-        @toy = Toy.find(params[:id])
+        @toy = Toy.toy_name(0) 
     end
 
     def delete 
