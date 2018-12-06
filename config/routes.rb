@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+root 'welcome#home'
 
 get 'signup', to: 'users#new', as: 'signup'
 get 'login', to: 'sessions#new', as: 'login'
@@ -9,7 +11,6 @@ resources :sessions
 resources :users 
 
 
-root to: "categories#index"
 
 resources :categories do 
   resources :toys 

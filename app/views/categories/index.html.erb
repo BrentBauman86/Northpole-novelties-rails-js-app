@@ -1,8 +1,8 @@
 <h1>Welcome to Northpole Novelties!</h1>
 
-<% @categories.each do |category| %>
-    <%= link_to category.name, category_toys_path(category) %>
-    <%end%>
+# <% @categories.each do |category| %>
+#     <%= link_to category.name, category_toys_path(category) %>
+#     <%end%>
 
     <% if session[:user_id] %>
     <h1><%= @user.name %></h1>
