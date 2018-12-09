@@ -1,9 +1,19 @@
-<% @toys.each do |toy| %>
-    <%= toy.name %>
-    <%end%>
+<div class='center'>
+    <div class='border'>
+        <h1><%= @category.name %></h1>
+    </div>
+</div>
 
+<h2>Toy List</h2>
+  <ul>
+      <% @toys.each do |toy| %>
+        <li><%= toy.name %></li>
+      <%end%>
+  </ul>
+
+ </br>
 <%= button_to "Create New Toy", new_category_toy_path, method: 'get' %>
-
+ </br>
 <%= link_to 'Back', categories_path, class: "btn btn-primary btn-light" %>
     
     

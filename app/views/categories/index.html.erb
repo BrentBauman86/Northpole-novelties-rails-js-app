@@ -1,15 +1,7 @@
 <div class='center'>
-<h1>Welcome to Northpole Novelties!</h1>
+  <div class='border'>
+    <h1>Welcome to Northpole Novelties!</h1>
+  </div>
 </div>
 
-<h2>Toy Categories</h2>
-<% @categories.each do |category| %>
-  <ul>
-  <div class="form-vertical">
-    <li><%= link_to category.name, category_toys_path(category) %></li>
-    <br></br>
-    </ul>
-    <%end%>
-  </div>
-
-   
+<%= render "form" %>
