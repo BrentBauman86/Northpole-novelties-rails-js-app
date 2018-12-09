@@ -12,7 +12,10 @@
           </div>
         <% end %>
       <br>
-      
+
+<%=link_to "Login via Facebook", "/auth/facebook"%>
+  <br></br>
+
 <%= form_for @user do |f|%>
   <div class="field">
           <%= f.label :name %><br />
@@ -23,5 +26,6 @@
           <%= f.text_field :password %>
   </div>
   <div class="actions"><%= submit_tag "Log In" %>
-<%end%>
+    <%end%>
+    
 <%end%>

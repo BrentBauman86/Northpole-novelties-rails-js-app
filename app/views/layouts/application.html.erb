@@ -14,7 +14,6 @@
     <div align='center'>
       <div id="user_header">
     <% if current_user %>
-    <%= link_to('Log in with Facebook!', '/auth/facebook') %>
       Logged in as <%= current_user.name %>
       <%= link_to "Log Out", logout_path, class: 'link-to-color' %>
       </div>
