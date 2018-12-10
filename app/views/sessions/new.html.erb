@@ -17,15 +17,15 @@
   <br></br>
 
 <%= form_for @user do |f|%>
-  <div class="field">
+  <div class="box">
           <%= f.label :name %><br />
           <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="box">
           <%= f.label :password %><br />
           <%= f.text_field :password %>
   </div>
   <div class="actions"><%= submit_tag "Log In" %>
     <%end%>
-    
+
 <%end%>

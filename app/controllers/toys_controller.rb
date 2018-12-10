@@ -8,32 +8,23 @@ class ToysController < ApplicationController
 
     def new
         @category = Category.find(params[:category_id])
-        @toy = Toy.new(category: @category)
+        @toy = @category.toys.build 
     end
 
-    # def create
-    #     @toy = Toy.new(toy_params)
-    #     @toy.user = current_user
-    #     @toy.category.each { |r| r.user = current_user }
+    def create
+        @category = Category.find(params[:category_id])
+        @toy = @category.toys.build(toy_params)
     
-    #     if @toy.save
-    #         redirect_to category_toys_path,  notice: "Thanks for building me"
-    #       else
-    #         redirect_to new_category_toy_path, :notice => "Error, try that again"
-    #       end
-    #   end
-
-    def create 
-        @toy = current_user.toys.create(toy_params)
-        if @toy.save 
+        if @toy.save
             redirect_to category_toys_path,  notice: "Thanks for building me"
-        else
-            redirect_to new_category_toy_path
-        end  
-    end
+          else
+            redirect_to new_category_toy_path, :notice => "Error, try that again"
+          end
+      end
 
     def show 
-        @toy = Toy.toy_name(params[:toy_name])
+        @category = Category.find_by(params[:id])
+        @toy = Toy.find(toy_params)
     end
 
     def delete 
@@ -46,6 +37,6 @@ class ToysController < ApplicationController
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :materials, :quantity, :rating, category_attributes: [:name])
+        params.require(:toy).permit(:name, :materials, :quantity, :rating, category_attributes: [:name, :id])
     end 
 end

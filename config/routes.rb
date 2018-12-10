@@ -10,10 +10,9 @@ get '/auth/facebook/callback' => 'sessions#create'
 resources :sessions
 resources :users 
 
-
-
 resources :categories do 
   resources :toys 
   end 
+  
 end
 

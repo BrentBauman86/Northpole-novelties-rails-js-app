@@ -2,3 +2,21 @@
     text-shadow: 2px 0 0 rgb(10, 10, 10), -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
     text-decoration: underline;
 }
+
+.table {
+    width: 90%;
+    font-size: 20px;
+    line-height: 44px;
+}
+
+.center {
+    text-align: center;
+}
+
+div.field {
+    border-radius: 500px;
+    background: 73AD21;
+    max-width: 1000px;
+    height: 20px; 
+    background-color:rgb(218, 20, 20)
+}
