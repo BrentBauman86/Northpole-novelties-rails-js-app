@@ -3,6 +3,6 @@ class Toy < ActiveRecord::Base
     belongs_to :user 
     scope :rating, -> { where('rating < 7') }
 
-    accepts_nested_attributes_for :category
+    accepts_nested_attributes_for :category, :allow_destroy => true
 end
 
