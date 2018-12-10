@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
 
     has_many :categoies, through: :toys 
     has_many :toys 
+
+    accepts_nested_attributes_for :toys
 end 

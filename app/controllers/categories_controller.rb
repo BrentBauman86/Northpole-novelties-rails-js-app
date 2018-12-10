@@ -20,6 +20,6 @@ class CategoriesController < ApplicationController
     private 
 
     def category_params
-        params.require(:category).permit(:name, toys_attributes: [:id, name])
+        params.require(:category).permit(:name)
     end
 end
