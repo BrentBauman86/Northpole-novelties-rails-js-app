@@ -33,9 +33,7 @@
     </div>
     <br>
     <label for="toy_category_id">Category:</label><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name%>
-    or create one:
-    <%= f.text_field :name %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
   <div class="actions"><%= f.submit "Build Toy into new category!" %></div>
     <%end%>

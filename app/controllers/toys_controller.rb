@@ -1,5 +1,5 @@
 class ToysController < ApplicationController 
-    before_action :authorize, only: [:edit, :update]
+    # before_action :authorize, only: [:edit, :update]
 
     def index
         @toys = Toy.all
@@ -13,9 +13,10 @@ class ToysController < ApplicationController
 
     def create
         @category = Category.find(params[:category_id])
-        
-        if @toy = @category.toys.create(toy_params)
-            redirect_to category_toys_path,  notice: "Thanks for building me"
+        @toy = @category.toys.build(toy_params)
+
+          if @toy.save
+            redirect_to category_toys_path, notice: "Thanks for building me"
           else
             redirect_to new_category_toy_path, notice: "Error, try that again"
           end
@@ -36,6 +37,6 @@ class ToysController < ApplicationController
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :materials, :quantity, :rating, users_attributes: [:id], categories_attributes: [:id])
+        params.require(:toy).permit(:name, :materials, :quantity, :rating)
     end 
 end
