@@ -12,7 +12,7 @@ class ToysController < ApplicationController
     end
 
     def create
-        @category = Category.find(params[:category_id])
+        @category = Category.find(params[:id])
         @toy = @category.toys.build
         
         if @toy.save 
