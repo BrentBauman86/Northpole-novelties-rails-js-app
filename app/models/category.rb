@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+    has_ancestry 
     has_many :toys
     has_many :users, through: :toys 
 

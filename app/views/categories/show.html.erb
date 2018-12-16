@@ -1,0 +1,19 @@
+
+<div class='center'>
+    <div class='border'>
+        <h1><%= @category.name %></h1>
+    </div>
+</div>
+
+<%= form_for @category do |f| %>
+      <%= f.fields_for :toys do |toy| %>
+      <li>
+        name: <%= toy.text_field :name %>
+        qty: <%= toy.text_field :quantity %>
+        rating: <%= toy.text_field :rating %>
+      </li>
+      <% end %>
+      <%= link_to 'add more toys', @category %>
+    </ul>
+    <%= f.submit %>
+  <% end %>

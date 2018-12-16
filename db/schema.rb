@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_193222) do
+ActiveRecord::Schema.define(version: 2018_12_12_174552) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "categories_toys", id: false, force: :cascade do |t|
+    t.integer "categories_id"
+    t.integer "toys_id"
+    t.index ["categories_id"], name: "index_categories_toys_on_categories_id"
+    t.index ["toys_id"], name: "index_categories_toys_on_toys_id"
   end
 
   create_table "toys", force: :cascade do |t|

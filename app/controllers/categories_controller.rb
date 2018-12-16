@@ -17,9 +17,20 @@ class CategoriesController < ApplicationController
         end 
     end
 
+    def update 
+        category = Category.find(params[:id])
+        category.update(category_params)
+        redirect_to categories_path 
+    end
+
+    def show 
+        @category = Category.find(params[:id])
+        @category.toys.build 
+    end
+
     private 
 
     def category_params
-        params.require(:category).permit(:name)
+        params.require(:category).permit(:name, toys_attributes: [:id, :name, :quantity, :rating])
     end
 end

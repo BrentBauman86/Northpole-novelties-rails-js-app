@@ -1,8 +1,8 @@
 class Toy < ActiveRecord::Base 
-    belongs_to :category 
+    has_and_belongs_to_many :categories 
     belongs_to :user, optional: true 
     scope :rating, -> { where('rating > 7') }
 
-    accepts_nested_attributes_for :category, :allow_destroy => true
+    accepts_nested_attributes_for :categories, :allow_destroy => true
 end
 
