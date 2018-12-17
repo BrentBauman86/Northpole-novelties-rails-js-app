@@ -35,6 +35,6 @@
     <label for="toy_category_id">Category:</label><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
-  <div class="actions"><%= f.submit "Build Toy into new category!" %></div>
+  <div class="actions"><%= f.submit "Build Toy into category!" %></div>
     <%end%>
   <br>

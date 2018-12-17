@@ -8,13 +8,11 @@ class ToysController < ApplicationController
     end
 
     def new
-        @toy = @category.toys.build 
+        @toy = Toy.new
     end
 
     def create
-        @category = Category.find(params[:id])
-        @toy = @category.toys.build
-        
+        @toy =  @category.toys.build(toy_params)    
         if @toy.save 
             redirect_to category_path(@category), notice: "Thanks for building me"
           else
@@ -50,11 +48,11 @@ class ToysController < ApplicationController
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :materials, :quantity, :rating)
+        params.require(:toy).permit(:name, :materials, :quantity, :rating, categories_attributes: [:id])
     end 
 
     def find_category
-        @category = Category.find(params[:category_id])
+        @category = Category.find_by(params[:id])
     end
 end
 

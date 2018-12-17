@@ -25,17 +25,9 @@
         <%end%>
     </table>
   </ul>
+  <%= link_to 'build toy in category show', new_category_path %>
+  <%= link_to 'build new toy', new_category_toy_path(@category.toys) %>
+  <br>
+  <%= link_to 'category index', categories_path %>
 
-<%= form_for @category do |f| %>
-      <%= f.fields_for :toys do |toy| %>
-      <li>
-        name: <%= toy.text_field :name %>
-        qty: <%= toy.text_field :quantity %>
-        rating: <%= toy.text_field :rating %>
-      </li>
-      <% end %>
-      <%= link_to 'add more toys', category_path %>
-    </ul>
-    <%= f.submit %>
-  <% end %>
   

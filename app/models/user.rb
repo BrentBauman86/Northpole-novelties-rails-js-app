@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     has_secure_password 
-    validates_presence_of :name, :password
+    validates :name, presence: true, uniqueness: true 
+    validates :password, presence: true, length: { minimum: 5 } 
 
     has_many :categoies, through: :toys 
     has_many :toys 

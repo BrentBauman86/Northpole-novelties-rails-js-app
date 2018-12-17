@@ -1,9 +1,12 @@
-<h1>New Category</h1>
-
+  
 <%= form_for @category do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit 'Make New Category' %>
-    <%end%>
+    <%= f.fields_for :toys do |toy| %>
+    <li>
+      name: <%= toy.text_field :name %>
+      qty: <%= toy.text_field :quantity %>
+      rating: <%= toy.text_field :rating %>
+    </li>
+    <% end %>
+  </ul>
+  <%= f.submit %>
+<% end %>
