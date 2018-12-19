@@ -33,6 +33,10 @@ gem 'dotenv-rails'
 
 gem 'omniauth-facebook'
 
+gem 'flash_rails_messages'
+
+gem 'bootstrap'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'client_side_validations'
