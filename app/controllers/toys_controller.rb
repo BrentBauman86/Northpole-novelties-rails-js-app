@@ -30,9 +30,9 @@ class ToysController < ApplicationController
 
     def update 
         @toy = Toy.find(params[:id])
-        if @toy.update?
+        if @toy.update(toy_params)
             flash[:success] = "Toy Updated"
-            redirect_to category_toys_path
+            redirect_to category_path(@category)
         else
             render 'edit'
         end
