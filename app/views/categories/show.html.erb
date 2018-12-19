@@ -14,6 +14,7 @@
          <td>Quantity</td>
          <td>Rating</td>
          <td>Edit</td>
+         <td>Delete</td>
         
         <% @category.toys.each do |toy| %>
          <tr>
@@ -21,6 +22,7 @@
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
              <td><%= link_to "Edit Toy", edit_category_toy_path(@category)%></td> 
+             <td><%= link_to "Delete Toy", category_toy_path(@category), method: :delete, data: { confirm: "Are you sure?"} %></td>
         </tr>
         <%end%>
     </table>

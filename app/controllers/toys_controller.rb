@@ -1,10 +1,14 @@
 class ToysController < ApplicationController 
     # before_action :authorize, only: [:edit, :update]
-      before_action :current_user, only: [:create] 
-      before_action :find_category 
+      before_action :current_user, only: [:edit]
+      before_action :find_category
 
     def index
         @toys = Toy.all
+    end
+
+    def show 
+        @toy = Toy.find_by(params[:id])
     end
 
     def new
@@ -12,7 +16,7 @@ class ToysController < ApplicationController
     end
 
     def create
-        @toy =  @category.toys.build(toy_params)    
+        @toy =  @category.toys.build(toy_params)
         if @toy.save 
             redirect_to category_path(@category), notice: "Thanks for building me"
           else
@@ -20,17 +24,13 @@ class ToysController < ApplicationController
           end
       end
 
-    def show 
-        @toy = Toy.find_by(params[:id])
-    end
-
     def edit
         @toy = Toy.find_by(params[:id])
     end
 
     def update 
-        @toy = Toy.find(params[:id])
-        if @toy.update(toy_params)
+        @toy = Toy.find_by(params[:id])
+        if @category.toys.update(toy_params)
             flash[:success] = "Toy Updated"
             redirect_to category_path(@category)
         else
@@ -38,9 +38,9 @@ class ToysController < ApplicationController
         end
     end
 
-    def delete 
-        @toy = Toy.find(params[:id])
-        @toy.destroy 
+    def destroy 
+        @toy = @category.toys.find_by(params[:id])
+        @toy.delete
 
         redirect_to categories_path 
     end
@@ -48,11 +48,11 @@ class ToysController < ApplicationController
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :materials, :quantity, :rating, categories_attributes: [:id])
+        params.require(:toy).permit(:name, :quantity, :rating, categories_attributes: [:id])
     end 
 
     def find_category
-        @category = Category.find_by(params[:id])
+        @category = Category.find_by(id: params[:category_id])
     end
 end
 

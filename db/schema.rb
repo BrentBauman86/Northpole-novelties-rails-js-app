@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_174552) do
 
   create_table "toys", force: :cascade do |t|
     t.string "name"
-    t.string "materials"
     t.integer "quantity"
     t.integer "rating"
     t.integer "user_id"

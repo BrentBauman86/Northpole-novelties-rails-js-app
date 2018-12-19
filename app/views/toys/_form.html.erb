@@ -21,9 +21,6 @@
     <%= f.text_field :quantity %>
     </div>
     <br>
-    <div class="form-horizontal">
-    <%= f.label :materials %>
-    <%= f.text_field :materials%>
   </div>
   <br>
   <div class="form-horizontal">
@@ -31,9 +28,7 @@
     <%= f.number_field :rating %>
     </div>
     <br>
-    <label for="toy_category_id">Category:</label><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
-  <div class="actions"><%= f.submit "Build Toy into category!" %></div>
+  <%= f.submit %>
     <%end%>
   <br>
