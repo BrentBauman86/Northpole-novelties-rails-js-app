@@ -26,8 +26,11 @@
     </table>
   </ul>
   <%= link_to 'build toy in category show', new_category_path %>
-  <%= link_to 'build new toy', new_category_toy_path(@category.toys) %>
+  <br>
+  <%= link_to 'build new toy', new_category_toy_path(@category) %>
   <br>
   <%= link_to 'category index', categories_path %>
+  <br>
+  <%= link_to 'find highly rated toys', category_toy_path(@category) %>
 
   

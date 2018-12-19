@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
     def new
         @category = Category.new 
-        @category.toys.build 
+        @category.toys.build
     end
 
     def create
