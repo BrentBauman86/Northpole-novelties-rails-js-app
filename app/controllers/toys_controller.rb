@@ -1,7 +1,7 @@
 class ToysController < ApplicationController 
     # before_action :authorize, only: [:edit, :update]
       before_action :current_user, only: [:create] 
-      before_action :find_category, except: [:edit, :update]
+      before_action :find_category 
 
     def index
         @toys = Toy.all
