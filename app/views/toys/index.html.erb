@@ -4,26 +4,7 @@
     </div>
 </div>
 
-<h2>Toy List</h2>
-  <ul>
-    <table class="table">
-        
-     <tr>
-         <td>Name</td>
-         <td>Quantity</td>
-         <td>Rating</td>
-         <td>Edit</td>
-        
-        <% @toys.each do |toy| %>
-         <tr>
-             <td><li><%= toy.name %></li></td>             
-             <td><%= toy.quantity %></td>
-             <td><%= toy.rating %></td>
-             <td><%= link_to "Edit Toy", category_toy_path(@category.toys, @category) %></td> 
-        </tr>
-        <%end%>
-    </table>
-  </ul>
+<%= render 'index_show' %>
 
  </br>
 <%= button_to "Create New Toy", new_category_toy_path, method: 'get' %>
