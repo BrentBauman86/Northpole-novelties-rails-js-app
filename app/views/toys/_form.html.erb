@@ -1,34 +1,15 @@
-
 <%= form_for [@category, @toy] do |f| %>
-    <% if @toy.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% @toy.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-      <div class="form-horizontal">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      </div>
-      <br>
-    <div class="form-horizontal">
+    <div class='form-horizontal'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <div class='form-horizontal'>
     <%= f.label :quantity %>
-    <%= f.text_field :quantity %>
-    </div>
+    <%= f.text_field :quantity%>
     <br>
-  </div>
-  <br>
-  <div class="form-horizontal">
+    <div class='form-horizontal'>
     <%= f.label :rating %>
-    <%= f.number_field :rating %>
-    </div>
+    <%= f.text_field :rating%>
     <br>
-  </p>
-  <%= f.submit %>
-    <%end%>
-  <br>
+    <%= f.submit %>
+<%end%>

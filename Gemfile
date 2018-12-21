@@ -33,10 +33,6 @@ gem 'dotenv-rails'
 
 gem 'omniauth-facebook'
 
-gem 'flash_rails_messages'
-
-gem 'bootstrap'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'client_side_validations'
@@ -49,6 +45,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'thin' 
 
 gem 'ancestry'
+
+gem 'flash_rails_messages'
+
+gem 'bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
