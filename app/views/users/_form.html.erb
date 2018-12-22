@@ -1,11 +1,11 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
+<%= simple_form_for @user, validate: true do |f| %>
     <% if @user.errors.any? %>
     <div class='center'>
       <div class="error_messages">
         <h2>Form is invalid</h2>
-          <% @user.errors.full_messages.each do |message| %>
+          <% @user.errors.messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </div>

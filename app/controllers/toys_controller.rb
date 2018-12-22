@@ -27,6 +27,7 @@ class ToysController < ApplicationController
 
     def edit 
         @toy = @category.toys.find_by(params[:id])
+
     end
 
     def update 
@@ -56,7 +57,7 @@ class ToysController < ApplicationController
     end
 
     def find_category_toy 
-        @toy = @category.toys.find_by(params[:id])
+        @toy = @category.toys.find_by(id: params[:toy_id])
     end
 end
 

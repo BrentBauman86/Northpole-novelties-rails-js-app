@@ -1,31 +1,19 @@
 <h1>Log In</h1>
-<%= form_for @user do |f| %>
-      <% if @user.errors.any? %>
-        <div class='center'>
-          <div class="error_messages">
-            <h2>Form is invalid</h2>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <br>
+<%= simple_form_for @user, validate: true do |f| %>
 
 <%=link_to "Login via Facebook", "/auth/facebook"%>
   <br></br>
 
-<%= form_for @user do |f|%>
+
   <div class="box">
           <%= f.label :name %><br />
           <%= f.text_field :name %>
   </div>
   <div class="box">
           <%= f.label :password %><br />
-          <%= f.text_field :password %>
+          <%= f.password_field :password %>
   </div>
   <div class="actions"><%= submit_tag "Log In" %>
     <%end%>
 
-<%end%>
 

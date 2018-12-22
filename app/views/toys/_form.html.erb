@@ -1,5 +1,6 @@
-<%= form_for [@category, @toy] do |f| %>
-    <div class='form-horizontal'>
+    <%= simple_form_for [@category, @toy], validate: true do |f| %>
+    
+        <div class='form-horizontal'>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>

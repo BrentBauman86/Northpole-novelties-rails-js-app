@@ -35,7 +35,11 @@ gem 'omniauth-facebook'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
+gem 'simple_form'
 gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
