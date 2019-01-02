@@ -29,17 +29,18 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 
-gem 'dotenv-rails'
-
 gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
-gem 'simple_form'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
+gem 'js_regex', '~> 3.1'
+
+gem 'client_side_validations', '~> 12.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -52,7 +53,7 @@ gem 'ancestry'
 
 gem 'flash_rails_messages'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,14 +1,14 @@
-    <%= simple_form_for [@category, @toy], validate: true do |f| %>
+    <%= form_for [@category, @toy], data: {validate: true}, :remote => true do |f| %>
     
-        <div class='form-horizontal'>
+        <div class='form-vertical'>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
-    <div class='form-horizontal'>
+    <div class='form-vertical'>
     <%= f.label :quantity %>
     <%= f.text_field :quantity%>
     <br>
-    <div class='form-horizontal'>
+    <div class='form-vertical'>
     <%= f.label :rating %>
     <%= f.text_field :rating%>
     <br>

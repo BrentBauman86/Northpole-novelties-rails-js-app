@@ -3,10 +3,9 @@
 
 # Disabled validators
 # ClientSideValidations::Config.disabled_validators = []
+
 # Uncomment to validate number format with current I18n locale
 # ClientSideValidations::Config.number_format_with_locale = true
-require 'client_side_validations/simple_form' if defined?(::SimpleForm)
-# require 'client_side_validations/formtastic' if defined?(::Formtastic)
 
 # Uncomment the following block if you want each input field to have the validation messages attached.
 #
