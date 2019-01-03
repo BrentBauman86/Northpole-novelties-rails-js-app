@@ -9,13 +9,14 @@
        <td>Rating</td>
        <td>Edit</td>
       
-      <% @category.toys.each do |toy| %>
+      <% if @category.toys.high_rating.each do |toy| %>
        <tr>
            <td><li><%= toy.name %></li></td>             
            <td><%= toy.quantity %></td>
            <td><%= toy.rating %></td>
            <td><%= link_to "Edit Toy", category_toy_path(@category.toys, @category) %></td> 
       </tr>
+      <%end%>
       <%end%>
   </table>
   <%= link_to "Back to Toy Page", category_path(@category) %>
