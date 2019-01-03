@@ -13,7 +13,8 @@
       <br>
 
 <%=link_to "Login via Facebook", "/auth/facebook"%>
-  <br></br>
+  
+<br></br>
 
   <div class="box">
           <%= f.label :name %><br />
@@ -21,7 +22,7 @@
   </div>
   <div class="box">
           <%= f.label :password %><br />
-          <%= f.password_field :password %>
+          <%= f.password_field :password, autocomplete: "off", value: "" %>
   </div>
   <div class="actions"><%= submit_tag "Log In" %>
 <%end%>
