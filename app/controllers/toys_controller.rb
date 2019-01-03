@@ -40,7 +40,7 @@ class ToysController < ApplicationController
     end
     
     def destroy 
-        @toy = @category.toys.find_by(params[:toy_id])
+        @toy = Toy.find_by(params[:toy_id])
         @toy.delete
 
         redirect_to category_path, notice: 'Toy has been destroyed'
