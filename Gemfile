@@ -49,8 +49,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'thin' 
 
-gem 'ancestry'
-
 gem 'flash_rails_messages'
 
 gem 'bootstrap', '~> 4.1.3'

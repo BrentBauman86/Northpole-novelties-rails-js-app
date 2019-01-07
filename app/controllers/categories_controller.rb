@@ -5,13 +5,11 @@ class CategoriesController < ApplicationController
     end
 
     def show 
-        @category = Category.find(params[:id])
-        @category.toys.build 
+        @category = Category.find(params[:id]) 
     end
 
     def new
         @category = Category.new 
-        @category.toys.build
     end
 
     def create

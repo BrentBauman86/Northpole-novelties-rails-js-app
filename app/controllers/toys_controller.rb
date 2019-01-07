@@ -26,12 +26,12 @@ class ToysController < ApplicationController
     end
 
     def edit 
-        @toy = @category.toys.find_by(params[:id])
-
+        @toy = Toy.find_by(id: params[:id])
     end
 
     def update 
-        if @category.toys.update(toy_params)
+        @toy = Toy.find_by(id: params[:id])
+        if @toy.update(toy_params) 
 
             redirect_to category_path(@category), notice: "Toy Updated"
         else
@@ -40,10 +40,10 @@ class ToysController < ApplicationController
     end
     
     def destroy 
-        @toy = Toy.find_by(params[:toy_id])
+        @toy = Toy.find_by(id: params[:id])
         @toy.delete
 
-        redirect_to category_path, notice: 'Toy has been destroyed'
+        redirect_to category_path(@category), notice: 'Toy has been destroyed'
     end
 
     private 

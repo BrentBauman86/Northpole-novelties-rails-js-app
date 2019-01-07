@@ -21,8 +21,8 @@
              <td><li><%= toy.name %></li></td>             
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
-             <td><%= link_to "Edit Toy", edit_category_toy_path(@category)%></td> 
-             <td><%= link_to "Delete Toy", category_toy_path(@category), method: :delete, data: { confirm: "Are you sure?"} %></td>
+             <td><%= link_to "Edit Toy", edit_category_toy_path(@category, toy)%></td> 
+             <td><%= link_to "Delete Toy", category_toy_path(@category, toy), method: :delete, data: { confirm: "Are you sure?"} %></td>
         </tr>
         <%end%>
     </table>

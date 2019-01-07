@@ -1,6 +1,6 @@
     <%= form_for [@category, @toy], data: {validate: true}, :remote => true do |f| %>
     
-        <div class='form-vertical'>
+    <div class='form-vertical'>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -14,3 +14,4 @@
     <br>
     <%= f.submit %>
 <%end%>
+
