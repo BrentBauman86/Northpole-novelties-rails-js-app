@@ -1,6 +1,6 @@
 class ToysController < ApplicationController 
     # before_action :authorize, only: [:edit, :update]
-    #   before_action :current_user, only: [:edit]
+      before_action :current_user 
       before_action :find_category
     #   before_action :find_category_toy, only: [:edit, update, :destroy]
 
@@ -43,8 +43,12 @@ class ToysController < ApplicationController
         @toy = Toy.find_by(id: params[:id])
         @toy.delete
 
-        redirect_to category_path(@category), notice: 'Toy has been destroyed'
+        if current_user.admin 
+            redirect_to category_path(@category), notice: 'Toy has been delivered to a beautiful child in Mcneed'
+        else 
+            redirect_to category_path(@category), notice: 'Toy has been destroyed'
     end
+end 
 
     private 
 
@@ -56,9 +60,9 @@ class ToysController < ApplicationController
         @category = Category.find_by(id: params[:category_id])
     end
 
-    def find_category_toy 
-        @toy = @category.toys.find_by(id: params[:toy_id])
-    end
+    # def find_category_toy 
+    #     @toy = @category.toys.find_by(id: params[:toy_id])
+    # end
 end
 
 

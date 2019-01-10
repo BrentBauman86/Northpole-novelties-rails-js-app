@@ -1,0 +1,32 @@
+<div class='center'>
+    <div class='border'>
+        <h1><%= @category.name %></h1>
+    </div>
+</div>
+
+<% if @user.admin %>
+  <h2>Toy List</h2>
+  <ul>
+    <table class="table">
+        
+     <tr>
+         <td>Name</td>
+         <td>Quantity</td>
+         <td>Rating</td>
+         <td>Deliver</td>
+        
+        <% @category.toys.each do |toy| %>
+         <tr>
+             <td><li><%= toy.name %></li></td>             
+             <td><%= toy.quantity %></td>
+             <td><%= toy.rating %></td>
+             <td><%= link_to "Deliver Toy", category_toy_path(@category, toy), method: :delete, data: { confirm: "Deliver this wonder toy to a child in need?"} %></td>
+         </tr>
+        <%end%>
+    </table>
+  </ul>
+  <br>
+  <br>
+  <%= link_to 'Category Index', categories_path %>
+  <br>
+<% end %>

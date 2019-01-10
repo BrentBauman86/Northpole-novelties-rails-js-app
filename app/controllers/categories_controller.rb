@@ -5,12 +5,13 @@ class CategoriesController < ApplicationController
     end
 
     def show 
-        @category = Category.find(params[:id]) 
+        @category = Category.find(params[:id])
+        @user = current_user 
     end
 
-    def new
-        @category = Category.new 
-    end
+    # def new
+    #     @category = Category.new 
+    # end
 
     def create
         @category = Category.new(category_params) 
@@ -21,11 +22,11 @@ class CategoriesController < ApplicationController
         end 
     end
 
-    def update 
-        category = Category.find(params[:id])
-        category.update(category_params)
-        redirect_to categories_path 
-    end
+    # def update 
+    #     category = Category.find(params[:id])
+    #     category.update(category_params)
+    #     redirect_to categories_path 
+    # end
 
     private 
 
