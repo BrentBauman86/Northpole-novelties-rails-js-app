@@ -1,5 +1,6 @@
 <%= render 'admin' %>
 
+<% if !@user.admin %>
 <h2>Toy List</h2>
   <ul>
     <table class="table">
@@ -28,5 +29,4 @@
   <%= link_to 'Category Index', categories_path %>
   <br>
   <%= link_to 'Find Highly Rated Toys', category_toy_path(@category) %>
-
- 
+ <%end%>
