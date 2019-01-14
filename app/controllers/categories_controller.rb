@@ -9,10 +9,6 @@ class CategoriesController < ApplicationController
         @user = current_user 
     end 
 
-    # def new
-    #     @category = Category.new 
-    # end
-
     def create
         @category = Category.new(category_params) 
         if @category.save 
@@ -21,12 +17,6 @@ class CategoriesController < ApplicationController
             redirect_to categories_new_path
         end 
     end
-
-    # def update 
-    #     category = Category.find(params[:id])
-    #     category.update(category_params)
-    #     redirect_to categories_path 
-    # end
 
     private 
 
