@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id 
-        redirect_to categories_path, notice: "Thank you for signing up!"
+        redirect_to categories_path, notice: "Welcome to NorthPole Novelties!"
       else
         redirect_to "new_session_path"
       end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     private 
 
       def user_params
-        params.require(:user).permit(:name, :password, :work_ethic, :admin)
+        params.require(:user).permit(:name, :password, :admin)
       end
     end
     

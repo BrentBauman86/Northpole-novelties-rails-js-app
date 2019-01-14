@@ -46,3 +46,7 @@ div.bottom-padding {
   .form-inline button:hover {
     background-color: royalblue;
   }
+
+  .checkbox {
+    top-padding: 10px;
+  }
