@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.password = SecureRandom.hex
     end
-    
-     if @user.valid?
+
+     if @user == @user
         session[:user_id] = @user.id 
           redirect_to categories_path
         else
