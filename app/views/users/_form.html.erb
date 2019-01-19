@@ -1,9 +1,32 @@
 <h1>Sign Up</h1>
 
+<%= form_for @user, html: {class: 'js_inline_validate'}, data: {validate_url: validate_users_path} do |f| %>
+  <%= f.text_field :name, class: 'js_validate_me js_user_name' %>
+  <%= f.text_field :password, class: 'js_validate_me js_user_password' %>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%= form_for @user, validate: true do |f| %>
     <% if @user.errors.any? %>
     <div class='center'>
-      <div class="error_messages">
+      <div class="field_with_errors">
         <h2>Form is invalid</h2>
           <% @user.errors.messages.each do |message| %>
             <li><%= message %></li>

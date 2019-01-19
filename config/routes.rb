@@ -8,7 +8,9 @@ get 'logout', to: 'sessions#destroy', as: 'logout'
 get '/auth/facebook/callback', to: 'sessions#create'
 
 resources :sessions
-resources :users 
+resources :users do 
+  collection {post :validate}
+end
 
 resources :categories do 
   resources :toys 

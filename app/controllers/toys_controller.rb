@@ -19,7 +19,8 @@ class ToysController < ApplicationController
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
-            redirect_to new_category_toy_path
+            @toy.errors[:rating] 
+            redirect_to new_category_toy_path, notice: "Make sure you fill all fields"
         end
     end
 
@@ -48,6 +49,16 @@ class ToysController < ApplicationController
     end
 end 
 
+    def validate
+        event = Event.new(validate_params)
+        event.valid?
+        event_field = validate_params.keys.first.try(:to_sym)
+        validation_response = !event.errors.include?(event_field)
+        respond_to do |format|
+        format.json { render json: {field_name: event_field, valid: validation_response, message: event.errors[event_field]} }
+    end
+  end
+
     private 
 
     def toy_params
@@ -56,6 +67,10 @@ end
 
     def find_category
         @category = Category.find_by(id: params[:category_id])
+    end
+
+    def validate_params
+        params.permit(:name, :quantity, :rating, categories_attributes: [:id])
     end
 end
 
