@@ -24,3 +24,11 @@ div.field {
 .error {
     color: red;
   }
+
+  .form-group.has-error .help-block {
+    display: block;
+}
+
+.form-group .help-block {
+    display: none;
+}

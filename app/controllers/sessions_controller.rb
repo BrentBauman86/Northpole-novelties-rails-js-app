@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
 
      if @user == @user
         session[:user_id] = @user.id 
-          redirect_to categories_path
+          redirect_to categories_path 
         else
-          redirect_to 'new_session_path', notice: "Name or password is invaild"
+          redirect_to new_session_path, notice: "Name or password is invaild"
        end
   end
 

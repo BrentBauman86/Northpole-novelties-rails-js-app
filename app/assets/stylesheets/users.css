@@ -10,8 +10,7 @@ div.bottom-padding {
     padding-bottom: 50px;
 }
 
-.center {
-    text-align: center;
+.error {
     color: red;
 }
 
@@ -54,3 +53,11 @@ div.bottom-padding {
   .checkbox {
     top-padding: 10px;
   }
+
+  .form-group.has-error .help-block {
+    display: block;
+}
+
+  .form-group .help-block {
+    display: none;
+}

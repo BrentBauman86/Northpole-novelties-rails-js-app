@@ -1,55 +1,33 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user, html: {class: 'js_inline_validate'}, data: {validate_url: validate_users_path} do |f| %>
-  <%= f.text_field :name, class: 'js_validate_me js_user_name' %>
-  <%= f.text_field :password, class: 'js_validate_me js_user_password' %>
-  <%= f.submit %>
+<%= form_for @user, validate: true do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this article from being saved:
+    </h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%= form_for @user, validate: true do |f| %>
-    <% if @user.errors.any? %>
-    <div class='center'>
-      <div class="field_with_errors">
-        <h2>Form is invalid</h2>
-          <% @user.errors.messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </div>
-      </div>
-      <%end%>
-
-    <div class="form-horizontal">
       <%= f.label :name %>
       <%= f.text_field :name %>
-    </div>
-      <br>
-    <div class="form-horizontal">
+
       <%= f.label :password %>
       <%= f.password_field :password %>
-    </div>
-      <br>
+      <br></br>
+      <p> Password must be at least 5 characters <p>
+      
       <div class="form-horizontal">
       <%= f.label :admin, "Check box if you are Santa" %>
       <%= f.check_box :admin %>
     </div>
+    
       <br>
     <div class="actions"><%= f.submit "Sign Up" %></div>
-      <%end%>
-  <br>
+  <%end%>

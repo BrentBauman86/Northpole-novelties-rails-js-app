@@ -3,7 +3,7 @@ class Toy < ActiveRecord::Base
     belongs_to :user, optional: true 
     validates :name, presence: true 
     validates :quantity, numericality: { only_integer: true }
-    validates :rating, numericality: { less_than_or_equal_to: 10 } 
+    validates :rating, numericality: { less_than_or_equal_to: 10, message: "cant be less then 1"} 
     
     scope :high_rating, -> { where('rating > 7') }
 

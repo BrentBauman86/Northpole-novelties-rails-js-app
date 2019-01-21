@@ -1,17 +1,38 @@
-    <%= form_for [@category, @toy], data: {validate: true}, :remote => true do |f| %>
-    
-    <div class='form-vertical'>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <div class='form-vertical'>
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity%>
-    <br>
-    <div class='form-vertical'>
-    <%= f.label :rating %>
-    <%= f.text_field :rating%>
-    <br>
+
+     <% if @toy.errors.any? %>
+     <div class="alert alert-block">
+         <ul>
+             <% @toy.errors.full_messages.each do |msg| %>
+                 <li><%= msg %></li>
+             <% end %>
+         </ul>
+     </div>
+ <% end %>
+ 
+   <%= form_for [@category, @toy], :validate => true, :remote => true do |f| %>
+
+    <div class="form-group has-error">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br>
+    </div>
+
+    <div class="form-group has-error">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity %>
+        <br>
+        <span class="help-block">Input any number</span>
+    </div>
+
+    <div class="form-group has-error">
+        <%= f.label :rating %>
+        <%= f.text_field :rating%>
+        <br>
+        <span class="help-block">Input number 1-10</span>
+        </div>
+
     <%= f.submit %>
 <%end%>
+
+
 

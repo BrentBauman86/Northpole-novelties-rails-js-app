@@ -2,7 +2,7 @@
 <%= form_for @user do |f| %>
       <% if @user.errors.any? %>
         <div class='center'>
-          <div class="error_messages">
+        <div class="field_with_errors">
             <h2>Form is invalid</h2>
               <% @user.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -18,7 +18,7 @@
 
   <div class="box">
           <%= f.label :name %><br />
-          <%= f.text_field :name %>
+          <%= f.text_field :name, validate: true %>
   </div>
   <div class="box">
           <%= f.label :password %><br />
