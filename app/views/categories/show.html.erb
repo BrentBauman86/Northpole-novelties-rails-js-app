@@ -20,13 +20,13 @@
              <td><%= link_to "Edit Toy", edit_category_toy_path(@category, toy)%></td> 
              <td><%= link_to "Delete Toy", category_toy_path(@category, toy), method: :delete, data: { confirm: "Are you sure?"} %></td>
         </tr>
-        <%end%>
+      <%end%>
     </table>
   </ul>
-  <br>
+    <br>
   <%= link_to 'Build New Toy', new_category_toy_path(@category) %>
-  <br>
+    <br>
   <%= link_to 'Category Index', categories_path %>
-  <br>
+    <br>
   <%= link_to 'Find Highly Rated Toys', category_toy_path(@category) %>
  <%end%>

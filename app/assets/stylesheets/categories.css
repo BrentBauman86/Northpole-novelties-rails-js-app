@@ -6,3 +6,11 @@ div.field {
     background-color:rgb(218, 20, 20)
 }
 
+.center {
+    text-align: center;
+}
+
+.border { 
+    text-shadow: 2px 0 0 rgb(10, 10, 10), -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    text-decoration: underline;
+}

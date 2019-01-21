@@ -10,19 +10,18 @@ class SessionsController < ApplicationController
       u.password = SecureRandom.hex
     end
 
-     if @user == @user
+    if @user == @user
         session[:user_id] = @user.id 
           redirect_to categories_path 
         else
           redirect_to new_session_path, notice: "Name or password is invaild"
-       end
+    end
   end
 
   def destroy 
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url, notice: "You're now logged out!"
   end
-
 
   private
 

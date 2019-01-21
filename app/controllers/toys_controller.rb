@@ -15,7 +15,6 @@ class ToysController < ApplicationController
     end
 
     def create 
-        raise 
         @toy = @category.toys.build(toy_params)
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
@@ -34,7 +33,7 @@ class ToysController < ApplicationController
 
             redirect_to category_path(@category), notice: "Toy Updated"
         else
-            redirect_to edit_category_toy, notice: "Rating must be between 1-10"
+            redirect_to edit_category_toy, notice: "Make sure you met all the input field requirements"
         end 
     end
     

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id 
-        redirect_to categories_path, notice: "Welcome to NorthPole Novelties!"
+        redirect_to categories_path, notice: "Welcome to North Pole Novelties!"
       else
         redirect_to new_session_path, notice: "Make sure all fields are filled in"
       end
