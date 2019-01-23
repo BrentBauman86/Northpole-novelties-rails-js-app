@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id 
         redirect_to categories_path, notice: "Welcome to North Pole Novelties!"
       else
-        redirect_to new_session_path, notice: "Make sure all fields are filled in"
+        redirect_to new_user_path, notice: "Make sure all fields are filled in"
       end
     end
 

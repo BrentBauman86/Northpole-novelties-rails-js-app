@@ -1,15 +1,4 @@
-
-     <% if @toy.errors.any? %>
-     <div class="alert alert-block">
-         <ul>
-             <% @toy.errors.full_messages.each do |msg| %>
-                 <li><%= msg %></li>
-             <% end %>
-         </ul>
-     </div>
- <% end %>
- 
-   <%= form_for [@category, @toy], :validate => true, :remote => true do |f| %>
+<%= form_for [@category, @toy], :validate => true, :remote => true do |f| %>
 
     <div class="form-group has-error">
         <%= f.label :name %>

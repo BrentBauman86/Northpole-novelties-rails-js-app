@@ -19,7 +19,7 @@ class ToysController < ApplicationController
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
-            render 'new_category_toy_path'
+            redirect_to new_category_toy_path, notice: 'Make sure you fill in all fields'
         end
     end
 
@@ -29,11 +29,11 @@ class ToysController < ApplicationController
 
     def update 
         @toy = Toy.find_by(id: params[:id])
+        
         if @toy.update(toy_params) 
-
             redirect_to category_path(@category), notice: "Toy Updated"
         else
-            redirect_to edit_category_toy, notice: "Make sure you met all the input field requirements"
+            redirect_to edit_category_toy_path, notice: "Make sure you met all the input field requirements"
         end 
     end
     

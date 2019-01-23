@@ -1,17 +1,7 @@
 <h1>Log In</h1>
-<%= form_for @user do |f| %>
-      <% if @user.errors.any? %>
-        <div class='center'>
-        <div class="field_with_errors">
-            <h2>Form is invalid</h2>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <br>
 
+<%= form_for @user do |f| %>
+     
 <%=link_to "Login via Facebook", "/auth/facebook" %>
   
 <br></br>
