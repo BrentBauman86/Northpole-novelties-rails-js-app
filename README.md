@@ -1,25 +1,28 @@
-# README
+# North-Pole-Novelties-Rails-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to North Pole Novelties, where you can come and build your own toys and if you're lucky you might even get a glimpse of Santa delivering them to all the good little boys and girls in your neighborhood!       
 
-Things you may want to cover:
+# Installation
 
-* Ruby version
+In order to run this application, simply do the followinng:
 
-* System dependencies
+* First: git clone git@github.com:BrentBauman86/Northpole-novelties-rails-app.git
 
-* Configuration
+* Next: cd Northpole-novelties-rails-app
 
-* Database creation
+* Next: bundle install 
 
-* Database initialization
+* Lastly: in terminal run thin start --ssl in the terminal
 
-* How to run the test suite
+# Contributing 
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at https://github.com/'BrentBauman86'/Northpole-novelties-rails-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Deployment instructions
+# License 
 
-* ...
-# Northpole-novelties-rails-app
+The gem is available as open source under the terms of the MIT License.
+
+# Code of Conduct 
+
+Everyone interacting in the Northpole-novelties-rails-app project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+
