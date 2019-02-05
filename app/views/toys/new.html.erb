@@ -1,4 +1,7 @@
-<h1>New Toy</h1>
 
+<h1>New Toy form</h1>
+<% @toy.errors.full_messages.each do |m| %>
+  <div>  <%= m %></div>
+    <%end%>
 <%= render 'form' %>
 

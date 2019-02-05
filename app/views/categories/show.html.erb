@@ -14,7 +14,7 @@
         
         <% @category.toys.each do |toy| %>
          <tr>
-             <td><li><%= toy.name %></li></td>             
+             <td><li><%= link_to toy.name, category_toy_path(@category, toy)%></li></td>             
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
              <td><%= link_to "Edit Toy", edit_category_toy_path(@category, toy)%></td> 

@@ -1,5 +1,4 @@
 class ToysController < ApplicationController 
-      before_action :current_user 
       before_action :find_category
 
     def index
@@ -15,11 +14,13 @@ class ToysController < ApplicationController
     end
 
     def create 
+    
         @toy = @category.toys.build(toy_params)
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
-            redirect_to new_category_toy_path, notice: 'Make sure you fill in all fields'
+            # redirect_to new_category_toy_path, notice: 'Make sure you fill in all fields'
+            render 'new'
         end
     end
 

@@ -1,3 +1,7 @@
+<% @toy.errors.full_messages.each do |m| %>
+    <%= m %>
+    <%end%>
+    
 <%= form_for [@category, @toy], :validate => true, :remote => true do |f| %>
 
     <div class="form-group has-error">
