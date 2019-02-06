@@ -1,9 +1,10 @@
-<% @toy.errors.full_messages.each do |m| %>
-    <%= m %>
-    <%end%>
-    
-<%= form_for [@category, @toy], :validate => true, :remote => true do |f| %>
 
+<%= form_for [@category, @toy] do |f| %>
+    <% if @toy.errors.any? %>
+    <% @toy.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
     <div class="form-group has-error">
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -14,14 +15,13 @@
         <%= f.label :quantity %>
         <%= f.text_field :quantity %>
         <br>
-        <span class="help-block">Input any number</span>
     </div>
 
     <div class="form-group has-error">
         <%= f.label :rating %>
         <%= f.text_field :rating%>
         <br>
-        <span class="help-block">Input number 1-10</span>
+        <p>Input number 1-10</p>
         </div>
 
     <%= f.submit %>

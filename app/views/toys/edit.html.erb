@@ -1,4 +1,9 @@
 <h1>Edit Toy</h1>
 
+
+<% @toy.errors.full_messages.each do |m| %>
+    <%= m %>
+    <%end%>
+
 <%= render 'form' %>
 

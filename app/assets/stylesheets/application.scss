@@ -22,7 +22,7 @@
 }
 
 .link-to-color {
-    color:rgb(230, 100, 100);
+    color:rgb(173, 223, 230);
 }
 
 body {
@@ -38,9 +38,57 @@ body {
   }
 
   .navbar-text{
-    // padding-left: 1100px;
+    padding-left: 1000px;
     position: absolute;
     left: 41%;
   }
 
+  .btn {
+    background-color: #ddd;
+    border: none;
+    color: rgb(173, 223, 230);
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color:rgb(173, 223, 230);
+    color:  rgb(173, 223, 230);
+  }
 
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: #0056b3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    color: #0056b3;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }

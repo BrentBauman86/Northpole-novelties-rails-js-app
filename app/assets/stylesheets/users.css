@@ -20,7 +20,7 @@ div.bottom-padding {
     align-items: center;
 }
 
-.form-inline {  
+  .form-inline {  
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -51,7 +51,7 @@ div.bottom-padding {
   }
 
   .checkbox {
-    top-padding: 10px;
+    padding-top: 10px;
   }
 
   .form-group.has-error .help-block {

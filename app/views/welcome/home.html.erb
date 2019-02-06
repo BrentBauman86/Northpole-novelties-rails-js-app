@@ -1,6 +1,7 @@
 <% if session[:user_id] %>
     <h1><%= @user.name %></h1>
     <h2>Facebook UID: <%= @user.uid %></h2>
+    <p><%= link_to 'Category Index', categories_path %></p>
 <% else %>
     <br>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %>

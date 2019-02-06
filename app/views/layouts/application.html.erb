@@ -11,18 +11,14 @@
     </head>
 
   <body>
-  <div class="nav-color">
-<nav class="navbar navbar-expand-lg navbar-light bg-gradient-light">
-  <a class="navbar-brand" href="/">North Pole Novelties</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="fb-like"
-    data-show-faces="true"
-    data-share="true"
-    data-width="450">
-  </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">North Pole Novelties</a>
+ 
+   <div class="fb-like"
+      data-show-faces="true"
+      data-share="true"
+      data-width="450">
+   </div>
 
  <script>
  window.fbAsyncInit = function() {
@@ -33,7 +29,6 @@
    });
    FB.AppEvents.logPageView();
  };
-
  (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -43,23 +38,16 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class='navbar-text'>
-      <% if current_user %>
-      Logged in as <%= current_user.name %>
-      <%= link_to "Log Out", logout_path, class: 'link-to-color' %>
-      <%else%>
-      <%= link_to "Sign Up", signup_path, class: 'link-to-color' %>
-        or
-      <%= link_to "Log In", login_path, class: 'link-to-color' %>
-      <%end%>
-    </ul>
-    </div>
-    </div>
-  </div>
+    <% if current_user %>
+    Logged in as <%= current_user.name %>
+    <%= link_to "Log Out", logout_path, class: 'link-to-color' %>
+    <%else%>
+    <%= link_to "Sign Up", signup_path, class: 'link-to-color' %>
+      or
+    <%= link_to "Log In", login_path, class: 'link-to-color' %>
+    <%end%>
 </nav>
-
     <%= render_flash_messages %>
     <%= yield %>
-  </body>
-</html>
-
+</body>
+  </html>

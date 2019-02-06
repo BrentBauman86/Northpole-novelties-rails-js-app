@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id 
           redirect_to categories_path 
         else
-          redirect_to new_session_path, notice: "Name or password is invaild"
+          render session_new_path
     end
   end
 

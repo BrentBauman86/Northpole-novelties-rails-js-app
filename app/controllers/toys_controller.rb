@@ -19,7 +19,6 @@ class ToysController < ApplicationController
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
-            # redirect_to new_category_toy_path, notice: 'Make sure you fill in all fields'
             render 'new'
         end
     end
