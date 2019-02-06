@@ -8,45 +8,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', "rails.validations" %>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">North Pole Novelties</a>
+
+ <div class="fb-like"
+    data-show-faces="true"
+    data-share="true"
+    data-width="450">
+ </div>
+
+<script>
+window.fbAsyncInit = function() {
+ FB.init({
+   appId      : '160029488285663',
+   xfbml      : true,
+   version    : 'v3.2'
+ });
+ FB.AppEvents.logPageView();
+};
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+  <% if current_user %>
+  Logged in as <%= current_user.name %>
+  <%= link_to "Log Out", logout_path, class: 'link-to-color' %>
+  <%else%>
+  <%= link_to "Sign Up", signup_path, class: 'link-to-color' %>
+    or
+  <%= link_to "Log In", login_path, class: 'link-to-color' %>
+  <%end%>
+</nav>
+
+
     </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">North Pole Novelties</a>
- 
-   <div class="fb-like"
-      data-show-faces="true"
-      data-share="true"
-      data-width="450">
-   </div>
-
- <script>
- window.fbAsyncInit = function() {
-   FB.init({
-     appId      : '160029488285663',
-     xfbml      : true,
-     version    : 'v3.2'
-   });
-   FB.AppEvents.logPageView();
- };
- (function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-    <% if current_user %>
-    Logged in as <%= current_user.name %>
-    <%= link_to "Log Out", logout_path, class: 'link-to-color' %>
-    <%else%>
-    <%= link_to "Sign Up", signup_path, class: 'link-to-color' %>
-      or
-    <%= link_to "Log In", login_path, class: 'link-to-color' %>
-    <%end%>
-</nav>
+  
     <%= render_flash_messages %>
     <%= yield %>
 </body>

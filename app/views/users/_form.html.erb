@@ -7,9 +7,10 @@
 
 <%= form_for @user, validate: true do |f| %>
 
+    <div class="field-with-errors">
       <%= f.label :name %>
       <%= f.text_field :name %>
-
+  </div>
       <%= f.label :password %>
       <%= f.password_field :password %>
       <br></br>

@@ -1,10 +1,10 @@
-
-<%= form_for [@category, @toy] do |f| %>
-    <% if @toy.errors.any? %>
-    <% @toy.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  <% end %>
+<% if @toy.errors.any? %>
+<% @toy.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+<% end %>
+<%= form_for [@category, @toy], validates: true do |f| %>
+  
     <div class="form-group has-error">
         <%= f.label :name %>
         <%= f.text_field :name %>

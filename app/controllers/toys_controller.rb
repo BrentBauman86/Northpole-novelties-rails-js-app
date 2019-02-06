@@ -14,7 +14,6 @@ class ToysController < ApplicationController
     end
 
     def create 
-    
         @toy = @category.toys.build(toy_params)
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"

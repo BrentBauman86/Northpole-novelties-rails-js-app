@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id 
           redirect_to categories_path 
         else
-          render session_new_path
+          render 'new_session'
     end
   end
 
