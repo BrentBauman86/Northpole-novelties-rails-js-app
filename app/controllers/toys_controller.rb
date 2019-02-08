@@ -28,11 +28,10 @@ class ToysController < ApplicationController
 
     def update 
         @toy = Toy.find_by(id: params[:id])
-        
         if @toy.update(toy_params) 
             redirect_to category_path(@category), notice: "Toy Updated"
         else
-            redirect_to edit_category_toy_path, notice: "Make sure you met all the input field requirements"
+            render 'edit'
         end 
     end
     

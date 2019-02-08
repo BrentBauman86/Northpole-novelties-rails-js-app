@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
       u.password = SecureRandom.hex
     end
 
-    if @user == @user
+    if current_user.id == @user.id 
         session[:user_id] = @user.id 
           redirect_to categories_path 
         else
-          render 'new_session'
+          render 'new'
     end
   end
 

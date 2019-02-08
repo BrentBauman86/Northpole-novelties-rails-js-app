@@ -1,23 +1,17 @@
 <h1>Log In</h1>
 
-<% @user.errors.full_messages.each do |m| %>
-        <%= m %>
-        <%end%>
-
 <%= form_for @user do |f| %>
      
 <%=link_to "Login via Facebook", "/auth/facebook" %>
   
 <br></br>
 
-  <div class="box">
           <%= f.label :name %><br />
           <%= f.text_field :name %>
-  </div>
-  <div class="box">
+
           <%= f.label :password %><br />
           <%= f.password_field :password%>
-  </div>
+          
   <%= f.submit "Log In" %>
 <%end%>
 

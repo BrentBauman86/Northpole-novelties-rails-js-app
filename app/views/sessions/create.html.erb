@@ -1,2 +1,17 @@
-# <pre><%= JSON.pretty_generate(@auth) %></pre>
-# <img src="<%= @auth[:info] && @auth[:info][:image] %>">
+
+<h1>Log In</h1>
+
+<%= form_for @user do |f| %>
+     
+<%=link_to "Login via Facebook", "/auth/facebook" %>
+  
+<br></br>
+
+          <%= f.label :name %><br />
+          <%= f.text_field :name %>
+
+          <%= f.label :password %><br />
+          <%= f.password_field :password%>
+          
+  <%= f.submit "Log In" %>
+<%end%>

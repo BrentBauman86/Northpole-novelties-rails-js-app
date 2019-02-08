@@ -61,3 +61,9 @@ div.bottom-padding {
   .form-group .help-block {
     display: none;
 }
+
+.field_with_errors .message {
+  color: #D00;
+  padding-left: 5px;
+  font-size: 12px;
+}

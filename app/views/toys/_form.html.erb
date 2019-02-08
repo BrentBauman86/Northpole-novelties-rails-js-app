@@ -1,28 +1,17 @@
-<% if @toy.errors.any? %>
-<% @toy.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-<% end %>
-<%= form_for [@category, @toy], validates: true do |f| %>
+<%= form_for [@category, @toy] do |f| %>
   
-    <div class="form-group has-error">
         <%= f.label :name %>
         <%= f.text_field :name %>
         <br>
-    </div>
 
-    <div class="form-group has-error">
         <%= f.label :quantity %>
         <%= f.text_field :quantity %>
         <br>
-    </div>
 
-    <div class="form-group has-error">
         <%= f.label :rating %>
         <%= f.text_field :rating%>
         <br>
         <p>Input number 1-10</p>
-        </div>
 
     <%= f.submit %>
 <%end%>
