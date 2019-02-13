@@ -1,6 +1,6 @@
 class Toy < ActiveRecord::Base 
-    has_and_belongs_to_many :categories 
-    belongs_to :user, optional: true 
+    belongs_to :categories 
+    belongs_to :users
     validates :name, presence: true 
     validates :quantity, numericality: { only_integer: true }
     validates :rating, numericality: { less_than_or_equal_to: 10 } 

@@ -1,5 +1,7 @@
 class ToysController < ApplicationController 
       before_action :find_category
+      before_action :show, only: [:popular] 
+      before_action :current_user
 
     def index
         @toys = Toy.all
@@ -7,6 +9,14 @@ class ToysController < ApplicationController
 
     def show 
         @toy = Toy.find_by(params[:id])
+    end
+
+    def self.popular(popular) 
+        if popular.present?
+            where('rating > 7') 
+        else
+            all
+        end
     end
 
     def new
@@ -49,7 +59,7 @@ end
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :quantity, :rating, categories_attributes: [:id])
+        params.require(:toy).permit(:name, :quantity, :rating, users_attributes: [:id])
     end 
 
     def find_category
