@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :toys, through: :categories 
     has_many :toys 
+    has_many :categories, through: :toys  
 
     has_secure_password 
     validates :name, presence: true 

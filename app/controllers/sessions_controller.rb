@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  helper_method :current_user
+  # helper_method :current_user
 
   def new
     @user = User.new  

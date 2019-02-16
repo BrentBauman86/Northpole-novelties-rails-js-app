@@ -11,12 +11,8 @@ class ToysController < ApplicationController
         @toy = Toy.find_by(params[:id])
     end
 
-    def self.popular(popular) 
-        if popular.present?
-            where('rating > 7') 
-        else
-            all
-        end
+    def self.popular 
+        where(rating: > 7) 
     end
 
     def new
@@ -25,6 +21,7 @@ class ToysController < ApplicationController
 
     def create 
         @toy = @category.toys.build(toy_params)
+        @toy = current_user.toys.build(toy_params)
         if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
