@@ -11,9 +11,9 @@ class ToysController < ApplicationController
         @toy = Toy.find_by(params[:id])
     end
 
-    def self.popular 
-        where(rating: > 7) 
-    end
+    # def self.popular 
+    #     where(rating: > 7) 
+    # end
 
     def new
         @toy = Toy.new
@@ -21,8 +21,8 @@ class ToysController < ApplicationController
 
     def create 
         @toy = @category.toys.build(toy_params)
-        @toy = current_user.toys.build(toy_params)
-        if @toy.save
+        if @toy.user_id = current_user.id 
+            @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
             render 'new'
@@ -56,7 +56,7 @@ end
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :quantity, :rating, users_attributes: [:id])
+        params.require(:toy).permit(:name, :quantity, :rating, users_attributes: [:id], categories_attributes: [])
     end 
 
     def find_category
