@@ -21,8 +21,8 @@ class ToysController < ApplicationController
 
     def create 
         @toy = @category.toys.build(toy_params)
-        if @toy.user_id = current_user.id 
-            @toy.save
+        @toy.user_id = current_user.id 
+        if @toy.save
             redirect_to category_path(@category), notice: "Thanks for building me"
         else
             render 'new'
@@ -56,7 +56,7 @@ end
     private 
 
     def toy_params
-        params.require(:toy).permit(:name, :quantity, :rating, users_attributes: [:id], categories_attributes: [])
+        params.require(:toy).permit(:name, :quantity, :rating, users_attributes: [:id], categories_attributes: [:id])
     end 
 
     def find_category
