@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
-  # helper_method :current_user
 
   def new
-    @user = User.new  
+    @user = User.new 
   end
 
   def create
@@ -10,8 +9,10 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.password = SecureRandom.hex
     end
+    
+    @user = User.find_by(name: params[:user][:name])
 
-    if current_user.id == @user.id 
+    if @user && @user.authenticate(params[:user][:password])  
         session[:user_id] = @user.id 
           redirect_to categories_path 
         else
