@@ -17,6 +17,7 @@
              <td><li><%= link_to toy.name, category_toy_path(@category, toy)%></li></td>             
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
+             <%console%>
              <% if current_user == toy.user %>
              <td><%= link_to "Edit Toy", edit_category_toy_path(@category, toy)%></td> 
              <td><%= link_to "Delete Toy", category_toy_path(@category, toy), method: :delete, data: { confirm: "Are you sure?"} %></td>
