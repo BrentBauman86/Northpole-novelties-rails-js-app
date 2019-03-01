@@ -14,27 +14,27 @@
 
  @import "bootstrap";
 
- div.corners {
-    border-radius: 500px;
-    background: 73AD21;
-    max-width: 100%;
-    height: 25px; 
-}
-
-.link-to-color {
-    color:rgb(173, 223, 230);
-}
-
-body {
-    padding-bottom: 30px;
+  div.corners {
+      border-radius: 500px;
+      background: 73AD21;
+      max-width: 100%;
+      height: 25px; 
   }
+
+  .link-to-color {
+      color:rgb(173, 223, 230);
+  }
+
+  body {
+      padding-bottom: 30px;
+    }
   
   .nav-color{
       background-color: rgb(173, 223, 230);
   }
 
-  .center {
-      text-align: right;
+  .center-category {
+      text-align: center;
   }
 
   .navbar-text{
