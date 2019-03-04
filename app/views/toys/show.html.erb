@@ -1,4 +1,4 @@
-<h2>Toy List</h2>
+<h2>Toy noList</h2>
 <ul>
   <table class="table">
       
@@ -8,7 +8,7 @@
        <td>Rating</td>
        <td>Edit</td>
       
-      <% if @category.toys.high_rating.each do |toy| %>
+      <% if @category.toys.popular.each do |toy| %>
        <tr>
            <td><li><%= toy.name %></li></td>             
            <td><%= toy.quantity %></td>

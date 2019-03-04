@@ -1,7 +1,5 @@
 class ToysController < ApplicationController 
       before_action :find_category
-      before_action :show, only: [:popular] 
-      before_action :current_user
 
     def index
         @toys = Toy.all
@@ -11,9 +9,10 @@ class ToysController < ApplicationController
         @toy = Toy.find_by(params[:id])
     end
 
-    # def self.popular 
-    #     where(rating: > 7) 
-    # end
+    def popular 
+        raise 
+        popular = Toy.popular
+    end
 
     def new
         @toy = Toy.new

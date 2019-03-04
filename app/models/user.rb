@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     accepts_nested_attributes_for :toys
 
     def self.from_omniauth(auth)
-        where(uid: auth.uid).first_or_create(:name => auth.info.name, :password => auth.uid)
+        where(uid: auth.uid).first_or_create(name: auth.info.name, password: auth.uid)
     end
 end
 

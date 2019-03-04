@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.from_omniauth(auth) if auth
-    user = User.find_by(:name => params[:user][:name]) if params[:user]
+    user = User.find_by(name: params[:user][:name]) if params[:user]
       if user && user.authenticate(params[:user][:password])
         @user = user
       end
-      
+
     if @user
       session[:user_id] = @user.id
       redirect_to categories_path
@@ -30,4 +30,5 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 end
+
 

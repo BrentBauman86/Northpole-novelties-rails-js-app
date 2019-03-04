@@ -1,4 +1,4 @@
-<h2>Toy List</h2>
+<h2>Toy rList</h2>
 <ul>
   <table class="table">
       
@@ -8,14 +8,13 @@
        <td>Rating</td>
        <td>Edit</td>
       
-      <% if @category.toys.popular.each do |toy| %>
+      <% @category.toys.popular.each do |toy| %>
        <tr>
            <td><li><%= toy.name %></li></td>             
            <td><%= toy.quantity %></td>
            <td><%= toy.rating %></td>
            <td><%= link_to "Edit Toy", category_toy_path(@category.toys, @category) %></td> 
       </tr>
-      <%end%>
       <%end%>
   </table>
   <%= link_to "Back to Toy Page", category_path(@category) %>

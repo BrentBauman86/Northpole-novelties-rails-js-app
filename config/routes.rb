@@ -7,12 +7,12 @@ get 'login', to: 'sessions#new', as: 'login'
 post '/sessions/create', to: "sessions#create"
 get 'logout', to: 'sessions#destroy', as: 'logout'
 get '/auth/facebook/callback', to: 'sessions#create'
-get 'toys', to: 'toys#popular', as: 'toys'
 
 resources :users  
    
 resources :categories do 
   resources :toys 
+  get 'toys', to: 'toys#popular'
   end  
 end
 
