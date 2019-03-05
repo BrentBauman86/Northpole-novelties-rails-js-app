@@ -8,13 +8,7 @@ class ToysController < ApplicationController
     def show 
         @toy = @category.toys.find_by(id: params[:id])
     end
-
-    def popular 
-        raise
-        @toy = Toy.find_by(params[:id])
-        popular = Toy.popular
-    end
-
+    
     def new
         @toy = Toy.new
     end

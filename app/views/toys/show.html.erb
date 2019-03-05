@@ -1,13 +1,10 @@
 <h2>Check Out This Toy</h2>
 
-      <h1>Name: <%= @toy.name %></h1>
-       <h2>Quantity: <%= @toy.quantity %></h2>
-       <h3>Rating: <%= @toy.rating %></h3>
-       Edit: <%= link_to "Edit Toy", edit_category_toy_path(@category, @toy)%>
-       <br>
-       Delete: <%= link_to "Delete Toy", category_toy_path(@category, @toy), method: :delete, data: { confirm: "Are you sure?"} %></td>
-       <br><br>
-       <%= link_to "Back to Toy Page", category_path(@category) %>
+    <h1>Name: <%= @toy.name %></h1>
+    <h2>Quantity: <%= @toy.quantity %></h2>
+    <h3>Rating: <%= @toy.rating %></h3>
+    <br>
+    <%= link_to "Back to Toy Page", category_path(@category) %>
 
 
 

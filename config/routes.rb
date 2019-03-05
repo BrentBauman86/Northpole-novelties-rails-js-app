@@ -11,8 +11,8 @@ get '/auth/facebook/callback', to: 'sessions#create'
 resources :users  
    
 resources :categories do 
-  resources :toys 
-  get 'categories/:category_id/toys', to: 'toys#popular'
-  end  
-end
-
+  resources :toys do 
+    get 'popular', :on => :member
+    end  
+  end
+end 
