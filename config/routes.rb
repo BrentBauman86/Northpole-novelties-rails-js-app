@@ -12,7 +12,7 @@ resources :users
    
 resources :categories do 
   resources :toys 
-  get 'toys', to: 'toys#popular'
+  get 'categories/:category_id/toys', to: 'toys#popular'
   end  
 end
 

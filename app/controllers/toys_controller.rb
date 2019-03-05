@@ -6,11 +6,12 @@ class ToysController < ApplicationController
     end
 
     def show 
-        @toy = Toy.find_by(params[:id])
+        @toy = @category.toys.find_by(id: params[:id])
     end
 
     def popular 
-        raise 
+        raise
+        @toy = Toy.find_by(params[:id])
         popular = Toy.popular
     end
 
