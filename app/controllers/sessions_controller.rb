@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to categories_path
     else
+      flash[:message] = "Your login was unsuccessful, please re-enter your information and try again."
       redirect_to login_path
     end
   end

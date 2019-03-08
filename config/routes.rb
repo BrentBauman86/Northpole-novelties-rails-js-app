@@ -16,3 +16,4 @@ resources :categories do
     end  
   end
 end 
+
