@@ -1,16 +1,5 @@
 <h1>Log In</h1>
-<% if @user.errors.any? %>
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-      </h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-  <% end %>
-  
 <%=link_to "Login via Facebook", "/auth/facebook" %>
   
 <br></br>
