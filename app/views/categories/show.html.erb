@@ -12,7 +12,7 @@
          <td>Rating</td>
          <td>Edit</td>
          <td>Delete</td>
-
+         
         <% @category.toys.each do |toy| %>
          <tr>
              <td><li><%= link_to toy.name, category_toy_path(@category, toy)%></li></td>             
