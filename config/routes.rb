@@ -10,10 +10,16 @@ get '/auth/facebook/callback', to: 'sessions#create'
 
 resources :users  
    
+get 'toys', to: 'toys#index'
+
 resources :categories do 
   resources :toys do 
-    get 'popular', :on => :member
+    get 'popular', :on => :collection
     end  
   end
 end 
+
+
+
+
 

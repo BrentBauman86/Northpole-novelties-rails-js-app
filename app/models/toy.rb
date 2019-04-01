@@ -5,11 +5,11 @@ class Toy < ActiveRecord::Base
     validates :quantity, numericality: { only_integer: true }
     validates :rating, numericality: { less_than_or_equal_to: 10 } 
     
-    # scope :popular, -> { where('rating > 7') }
+    scope :popular, -> { where('rating > 7') }
 
-    def self.popular
-        where('rating > 7')
-    end
-    # accepts_nested_attributes_for :categories, allow_destroy: true
+    # def self.popular
+    #     where('rating > 7')
+    # end
+    
 end
 

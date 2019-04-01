@@ -1,9 +1,10 @@
-<% if session[:user_id] %>
-    <h1><%= @user.name %></h1>
-    <h2>Facebook UID: <%= @user.uid %></h2>
+<% if session[:user_id]%>
+    <h1>Current User: <%= @user.name %></h1>
+    <h2>Facebook ID: <%= @user.uid %>
+    
     <p><%= link_to 'Category Index', categories_path %></p>
-<% else %>
-    <br>
+        <br>
+    <%end%>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-<% end %>
 
+    

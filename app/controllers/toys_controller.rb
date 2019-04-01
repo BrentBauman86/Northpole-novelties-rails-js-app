@@ -2,8 +2,12 @@ class ToysController < ApplicationController
       before_action :find_category
 
     def index
-        @toys = Toy.all
-    end
+       if @category 
+            @toys = @category.toys
+        else 
+           @toys = Toy.all 
+        end
+    end 
 
     def show 
         @toy = @category.toys.find_by(id: params[:id])

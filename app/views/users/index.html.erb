@@ -1,1 +1,9 @@
-<h1><%= current_user.name %></h1>
+<h1>Current User: <% if current_user.name == 'granty' %>
+    <%= current_user.name %></h1>
+<%end%>
+
+<%= render 'index' %>
+
+
+
+

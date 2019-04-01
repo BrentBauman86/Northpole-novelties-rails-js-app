@@ -1,3 +1,4 @@
+
 <h2>Toy List</h2>
   <ul>
     <table class="table">
@@ -5,16 +6,21 @@
      <tr>
          <td>Name</td>
          <td>Quantity</td>
+         <% if current_user.uid? %>
          <td>Rating</td>
+         <%end%>
          <td>Edit</td>
         
-        <% @toy.each do |toy| %>
+        <% @toys.each do |toy| %>
          <tr>
              <td><li><%= toy.name %></li></td>             
              <td><%= toy.quantity %></td>
+             <% if current_user.uid? %>
              <td><%= toy.rating %></td>
-             <td><%= link_to "Edit Toy", category_toy_path(@category.toys, @category) %></td> 
+             <%end%>
+             <td><%= link_to "Edit Toy", category_toy_path(toy.category, toy) %></td> 
         </tr>
         <%end%>
     </table>
   </ul>
+
