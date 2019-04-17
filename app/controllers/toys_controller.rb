@@ -16,6 +16,10 @@ class ToysController < ApplicationController
 
     def show 
         @toy = @category.toys.find_by(id: params[:id])
+        respond_to do |f|
+            f.html {render :show}
+            f.json {render json: @toy}
+        end
     end
     
     def new
@@ -30,10 +34,20 @@ class ToysController < ApplicationController
         else
             render 'new'
         end
+        
+        respond_to do |f|
+            f.html {render :create}
+            f.json {render json: @toy}
+        end
     end
 
     def edit 
         @toy = Toy.find_by(id: params[:id])
+
+        respond_to do |f|
+            f.html {render :edit}
+            f.json {render json: @toy}
+        end
     end
 
     def update 
@@ -43,6 +57,11 @@ class ToysController < ApplicationController
         else
             render 'edit'
         end 
+
+        respond_to do |f|
+            f.html {render :update}
+            f.json {render json: @toy}
+        end
     end
     
     def destroy 
@@ -53,6 +72,11 @@ class ToysController < ApplicationController
             redirect_to category_path(@category), notice: 'Santa just brought some Christmas cheer to a young one!'
         else 
             redirect_to category_path(@category), notice: 'Toy has been destroyed'
+    end
+    
+    respond_to do |f|
+        f.html {render :index}
+        f.json {render json: @toy}
     end
 end 
 
