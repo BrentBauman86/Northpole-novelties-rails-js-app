@@ -7,6 +7,11 @@ class ToysController < ApplicationController
         else 
            @toys = Toy.all 
         end
+
+        response_to do |f|
+            f.html {render :index}
+            f.json {render json: @toys}
+        end
     end 
 
     def show 
