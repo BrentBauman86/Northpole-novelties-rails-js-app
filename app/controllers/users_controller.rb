@@ -16,12 +16,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-    
+    respond_to do |format|
     if @user.save
-      session[:user_id] = @user.id 
-      redirect_to categories_path, notice: "Welcome to North Pole Novelties!"
+      session[:user_id] = @user.id
+      format.html {redirect_to categories_path, notice: "Welcome to North Pole Novelties!"}
+      format.json {render json: @user}
     else
-      render 'new'
+      format.html {render :new}
+      format.json {render json: @user}
+      end
     end
   end
 
