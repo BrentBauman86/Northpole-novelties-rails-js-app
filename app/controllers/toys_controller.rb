@@ -41,31 +41,25 @@ class ToysController < ApplicationController
             format.json {render json: @toy}
         else
             format.html {render :new}
-            format.json {render json: @toy.errors, status: :unprocessable_entity}
+            format.json {render json: @toy}
             end
         end
     end
 
     def edit 
         @toy = Toy.find_by(id: params[:id])
-
-        respond_to do |f|
-            f.html {render :edit}
-            f.json {render json: @toy}
-        end
     end
 
     def update 
         @toy = Toy.find_by(id: params[:id])
+        respond_to do |format|
         if @toy.update(toy_params) 
-            redirect_to category_path(@category), notice: "Toy Updated"
+            format.html {redirect_to category_path(@category), notice: "Toy Updated"}
+            format.json {render json: @toy}
         else
-            render 'edit'
-        end 
-
-        respond_to do |f|
-            f.html {render :update}
-            f.json {render json: @toy}
+            format.html {render :edit}
+            format.json {render json: @toy}
+            end 
         end
     end
     
