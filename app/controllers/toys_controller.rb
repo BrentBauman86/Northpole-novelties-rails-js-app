@@ -35,6 +35,7 @@ class ToysController < ApplicationController
     def create 
         @toy = @category.toys.build(toy_params)
         @toy.user_id = current_user.id 
+        
         respond_to do |format|
         if @toy.save
             format.html {redirect_to category_path(@category), notice: "Thanks for building me"}
@@ -52,6 +53,7 @@ class ToysController < ApplicationController
 
     def update 
         @toy = Toy.find_by(id: params[:id])
+        
         respond_to do |format|
         if @toy.update(toy_params) 
             format.html {redirect_to category_path(@category), notice: "Toy Updated"}
@@ -65,18 +67,17 @@ class ToysController < ApplicationController
     
     def destroy 
         @toy = Toy.find_by(id: params[:id])
+        
+        respond_to do |format|
         @toy.delete
-
         if current_user.admin 
-            redirect_to category_path(@category), notice: 'Santa just brought some Christmas cheer to a young one!'
+            format.html {redirect_to category_path(@category), notice: 'Santa just brought some Christmas cheer to a young one!'}
+            format.json {render json: @toy}
         else 
-            redirect_to category_path(@category), notice: 'Toy has been destroyed'
-    end
-    
-    respond_to do |f|
-        f.html {render :index}
-        f.json {render json: @toy}
-    end
+            format.html {redirect_to category_path(@category), notice: 'Toy has been destroyed'}
+            format.json {render json: @toy}
+        end
+    end 
 end 
 
     private 
