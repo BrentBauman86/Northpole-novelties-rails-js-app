@@ -1,4 +1,4 @@
-<h1>Current User: <% if current_user.name == 'granty' %>
+<h1>Current User: <% if session[:user_id] === current_user.id %>
     <%= current_user.name %></h1>
 <%end%>
 
