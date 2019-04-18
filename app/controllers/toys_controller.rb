@@ -16,6 +16,7 @@ class ToysController < ApplicationController
 
     def show 
         @toy = @category.toys.find_by(id: params[:id])
+        
         respond_to do |f|
             f.html {render :show}
             f.json {render json: @toy}
@@ -24,20 +25,24 @@ class ToysController < ApplicationController
     
     def new
         @toy = Toy.new
+
+        respond_to do |f|
+            f.html {render :new}
+            f.json {render json: @toy}
+        end 
     end
 
     def create 
         @toy = @category.toys.build(toy_params)
         @toy.user_id = current_user.id 
+        respond_to do |format|
         if @toy.save
-            redirect_to category_path(@category), notice: "Thanks for building me"
+            format.html {redirect_to category_path(@category), notice: "Thanks for building me"}
+            format.json {render json: @toy}
         else
-            render 'new'
-        end
-        
-        respond_to do |f|
-            f.html {render :create}
-            f.json {render json: @toy}
+            format.html {render :new}
+            format.json {render json: @toy.errors, status: :unprocessable_entity}
+            end
         end
     end
 
