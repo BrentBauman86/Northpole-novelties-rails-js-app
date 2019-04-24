@@ -5,15 +5,20 @@ $(function() {
 
 function getToys() {
     $.getJSON(`/toys`, function (data) {
-        console.log('the data is:', data)
-        let toy = new Toy(data) 
-        let toyHTML = toy.showHTML()
-        document.getElementById('toy-data').innerHTML += toyHTML
-    })
+        let toyList = "";
+        data.forEach(function(toys){
+            let toy = new Toy(toys);
+            let toyHTML = toy.showHTML();
+            toyList += toyHTML 
+        });
+        let toyData = document.getElementById('toys');
+        toyData.innerHTML = toyList;
+    });
 }
 
 class Toy {
     constructor(obj) {
+        this.id = obj.id;
         this.name = obj.name; 
         this.quantity = obj.quantity;
         this.rating = obj.rating; 
@@ -26,6 +31,11 @@ Toy.prototype.showHTML = function() {
     return (`
         <div>
           <p>${this.name}</p>
+          <p>${this.quantity}</p>
+          <p>${this.rating}</p>
+          <p>${this.user_id}</p>
+          <p>${this.category_id}</p>
+          <p>${this.id}</p>
         </div>
     `)
 }
