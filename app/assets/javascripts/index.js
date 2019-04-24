@@ -1,32 +1,38 @@
 $(function() {
-    prompt("we in?!")
+    console.log("index.js is loaded...")
+    listenForClick();
 });
 
-function getUsers() {
-    $.ajax({
-        url: 'http://localhost:3000/users',
-        method: 'get',
-        dataType: 'json'
-    }).done(function (data) {
+function getToys() {
+    $.getJSON(`/toys`, function (data) {
         console.log('the data is:', data)
-        let user = User.all 
-        let userHTML = user.showHTML()
-        document.getElementById('users').innerHTML = userHTML
+        let toy = new Toy(data) 
+        let toyHTML = toy.showHTML()
+        document.getElementById('toy-data').innerHTML += toyHTML
     })
 }
 
-class User {
-    constructor(attr) {
-        this.id = attr.id 
-        this.name = attr.name 
-        this.password = attr.password
+class Toy {
+    constructor(obj) {
+        this.name = obj.name; 
+        this.quantity = obj.quantity;
+        this.rating = obj.rating; 
+        this.user_id = obj.user_id;
+        this.category_id = obj.category_id
     }
 }
 
-User.prototype.showHTML = function() {
-    return (
+Toy.prototype.showHTML = function() {
+    return (`
         <div>
           <p>${this.name}</p>
         </div>
-    )
+    `)
+}
+
+function listenForClick() {
+    $('button#toy-data').on("click", function(e) {
+        e.preventDefault()
+        getToys();
+    })
 }
