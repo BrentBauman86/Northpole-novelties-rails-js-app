@@ -89,8 +89,8 @@ function listenForClick() {
 }
 
 function showToyClick() {
-    $('button#toy-details').on("click", function(e) {
-        e.preventDefault()
-        getToy();
-    })
+    $(".toy-details-js").on("click", function(e) {
+      e.preventDefault();
+      getToy();
+    });
 }
