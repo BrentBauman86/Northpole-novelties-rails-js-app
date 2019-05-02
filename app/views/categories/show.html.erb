@@ -15,7 +15,8 @@
          
         <% @category.toys.each do |toy| %>
          <tr>
-             <td><li><%= link_to toy.name, category_toy_path(@category, toy)%></li></td>             
+             <td><li><a href="#" class="toy-details-js" data-toy-id="<%= @category.toys.ids%>" data-cat-id="<%= @category.id%>"><%= toy.name%></a>
+             </li></td>             
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
              <% if current_user == toy.user %>
@@ -34,6 +35,8 @@
   <%= link_to 'Find Highly Rated Toys', popular_category_toys_path(@category) %>
     <br>
     <button id="toy-data">Get Toys</button>
+    <button id="toy-details">Get Toy</button>
+
   <%= link_to 'Check Out All Toys', toys_path %>
     <br>
   <%end%>
