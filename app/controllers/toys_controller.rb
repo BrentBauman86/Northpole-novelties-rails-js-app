@@ -2,6 +2,7 @@ class ToysController < ApplicationController
       before_action :find_category
 
     def index
+        binding.pry
        if @category 
             @toys = @category.toys
         else 

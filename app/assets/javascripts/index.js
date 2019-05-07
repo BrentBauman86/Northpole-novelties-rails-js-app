@@ -4,6 +4,8 @@ $(function() {
     showToyClick();
 });
 
+//using an ajax request for getToyList was causing a cross-origin request error
+
 function getToyList() {
     $.getJSON(`/toys`, function (data) {
         let toyList = "";
@@ -20,7 +22,6 @@ function getToyList() {
         toyData.innerHTML = toyList;
     });
 }
-//using ajax request for getToyList was causing a cross-origin request error
 
 function getToy() {
     let catId = $(".toy-details-js").attr("data-cat-id")
@@ -31,7 +32,7 @@ function getToy() {
         let toyDetails = toy.showHTML();
 
         let toyData = document.getElementById('show-toy')
-        toyDetails.toyData.innerHTML 
+        toyData.toyDetails
     });
 }
 
@@ -43,6 +44,18 @@ class Toy {
         this.rating = obj.rating; 
         this.user_id = obj.user_id;
         this.category_id = obj.category_id
+    }
+
+    static newToyForm() {
+        return (`
+        <h1>New Toy Form</h1>
+        <form>
+            <input id="toy-name" type='text' name='name'></input><br>
+            <input id="toy-quantity" type='text' name='quantity'></input><br>
+            <input id="toy-rating" type='text' name='rating'></input>
+            <input type='submit' />
+        </form>
+        `)
     }
 }
 
@@ -65,8 +78,8 @@ Toy.prototype.showHTML = function() {
     <ul>
     <table class="table">
         
+    <td>Name</td>
      <tr>
-         <td>Name</td>
          <td>Quantity</td>
          <td>Rating</td>
          <td>Edit</td>
@@ -94,3 +107,4 @@ function showToyClick() {
       getToy();
     });
 }
+
