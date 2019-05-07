@@ -2,6 +2,7 @@ $(function() {
     console.log("index.js is loaded...")
     listenForClick();
     showToyClick();
+    toyFormClick();
 });
 
 //using an ajax request for getToyList was causing a cross-origin request error
@@ -60,7 +61,7 @@ class Toy {
 }
 
  function toyTable() {
-return (`
+    return (`
     <table class="table">
         
      <tr>
@@ -92,6 +93,13 @@ Toy.prototype.showHTML = function() {
     </table>
     </ul>
     `)
+}
+
+function toyFormClick() {
+    $('button#toy-form').on("click", function(e) {
+        e.preventDefault()
+        newToyForm();
+    })
 }
 
 function listenForClick() {
