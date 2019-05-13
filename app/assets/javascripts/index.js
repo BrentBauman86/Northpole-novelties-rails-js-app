@@ -25,16 +25,16 @@ function getToyList() {
 }
 
 function getToy() {
-    // let catId = $(".toy-details-js").attr("data-cat-id")
-    // let toyId = $(".toy-details-js").attr("data-toy-id")
-    // $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
-    //     console.log('ill take that...')
-    //     let toy = new Toy(data);
-    //     let toyDetails = toy.showHTML();
+    let catId = $(".toy-details-js").attr("data-cat-id")
+    let toyId = $(".toy-details-js").attr("data-toy-id")
+    $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
+        console.log('ill take that...')
+        let toy = new Toy(data);
+        let toyDetails = toy.showHTML();
 
-    //     let toyData = document.getElementById('show-toy')
-    //     toyData.toyDetails
-    // });
+        let toyData = document.getElementById('show-toy')
+        toyData.toyDetails
+    });
 }
 
 class Toy {
@@ -65,9 +65,9 @@ function newToyForm() {
  function toyTable() {
     return (`
     <style>
-        .left   {text-align:left;}
-        .center {text-align:center;}
-        .right  {text-align:right;}
+        .left   
+        .center 
+        .right  
     </style>
 
     <table class="table">
@@ -84,9 +84,9 @@ function newToyForm() {
 Toy.prototype.showHTML = function() {
     return (`
     <style>
-        .left   {text-align:left;}
-        .center {text-align:center;}
-        .right  {text-align:right;}
+        .left  
+        .center 
+        .right  
     </style>
 
     <ul>
@@ -104,7 +104,8 @@ Toy.prototype.showHTML = function() {
 function toyFormClick() {
     $('button#toy-form').on("click", function(e) {
         e.preventDefault()
-         let form = newToyForm();
+         let form = document.getElementById("toy-form")
+         form.innerHTML += newToyForm();
     })
 }
 
