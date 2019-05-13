@@ -25,16 +25,16 @@ function getToyList() {
 }
 
 function getToy() {
-    let catId = $(".toy-details-js").attr("data-cat-id")
-    let toyId = $(".toy-details-js").attr("data-toy-id")
-    $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
-        console.log('ill take that...')
-        let toy = new Toy(data);
-        let toyDetails = toy.showHTML();
+    // let catId = $(".toy-details-js").attr("data-cat-id")
+    // let toyId = $(".toy-details-js").attr("data-toy-id")
+    // $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
+    //     console.log('ill take that...')
+    //     let toy = new Toy(data);
+    //     let toyDetails = toy.showHTML();
 
-        let toyData = document.getElementById('show-toy')
-        toyData.toyDetails
-    });
+    //     let toyData = document.getElementById('show-toy')
+    //     toyData.toyDetails
+    // });
 }
 
 class Toy {
@@ -47,48 +47,43 @@ class Toy {
         this.category_id = obj.category_id
     }
 
-    static newToyForm() {
-        return (`
-        <h1>New Toy Form</h1>
-        <form>
-            <input id="toy-name" type='text' name='name'></input><br>
-            <input id="toy-quantity" type='text' name='quantity'></input><br>
-            <input id="toy-rating" type='text' name='rating'></input>
-            <input type='submit' />
-        </form>
-        `)
-    }
 }
+
+function newToyForm() {
+    return (`
+    <h1>New Toy Form</h1>
+    <form>
+        <input id="toy-name" type='text' name='name'></input><br>
+        <input id="toy-quantity" type='text' name='quantity'></input><br>
+        <input id="toy-rating" type='text' name='rating'></input>
+        <input type='submit' />
+    </form>
+    `)
+}
+
 
  function toyTable() {
     return (`
-    <table class="table">
-        
-     <tr>
-         <td>Name</td>
-         <td>Quantity</td>
-         <td>Rating</td>
-         <td>Edit</td>
-        </tr>
-        </table>
+         <h1>Name</h1>
+         <h2>Quantity</h2>
+         <h2>Rating</h2>
+         <h2>Edit</h2>
 `)
 }
 
 Toy.prototype.showHTML = function() {
     return (`
+    <style>
+    .left   {text-align:left;}
+    .center {text-align:center;}
+    .right  {text-align:right;}
+</style>
     <ul>
     <table class="table">
-        
-    <td>Name</td>
-     <tr>
-         <td>Quantity</td>
-         <td>Rating</td>
-         <td>Edit</td>
-        </tr>
          <tr>
-             <td><li>${this.name}</li></td>             
-             <td>${this.quantity}</td>
-             <td>${this.rating}</td>
+             <td class="left"><li>${this.name}</li></td>             
+             <td class="center">${this.quantity}</td>
+             <td class="right">${this.rating}</td>
         </tr>
     </table>
     </ul>
@@ -98,7 +93,7 @@ Toy.prototype.showHTML = function() {
 function toyFormClick() {
     $('button#toy-form').on("click", function(e) {
         e.preventDefault()
-        newToyForm();
+         let form = newToyForm();
     })
 }
 

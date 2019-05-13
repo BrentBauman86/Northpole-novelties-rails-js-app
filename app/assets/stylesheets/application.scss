@@ -92,3 +92,21 @@
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
   }
+
+    .left {
+    width:100px;
+    float:left;
+    text-align:left;
+    }
+
+    .center {
+    width:100px;
+    float:left;
+    text-align:center;
+    }
+
+    .right {
+    width:100px;
+    float:left;
+    text-align:right;
+    }
