@@ -53,9 +53,9 @@ function newToyForm() {
     return (`
     <h1>New Toy Form</h1>
     <form>
-        <input id="toy-name" type='text' name='name'></input><br>
-        <input id="toy-quantity" type='text' name='quantity'></input><br>
-        <input id="toy-rating" type='text' name='rating'></input>
+        <strong>name</strong><input id="toy-name" type='text' name='name'></input><br>
+        <strong>quantity</strong><input id="toy-quantity" type='text' name='quantity'></input><br>
+        <strong>rating</strong><input id="toy-rating" type='text' name='rating'></input>
         <input type='submit' />
     </form>
     `)
@@ -105,7 +105,7 @@ function toyFormClick() {
     $('button#toy-form').on("click", function(e) {
         e.preventDefault()
          let form = document.getElementById("toy-form")
-         form.innerHTML += newToyForm();
+         form.innerHTML = newToyForm();
     })
 }
 
