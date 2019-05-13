@@ -18,7 +18,7 @@ function getToyList() {
         });
 
         let table = document.getElementById('toy-table');
-        table += toyTable();
+        table.innerHTML += toyTable();
         let toyData = document.getElementById('toys');
         toyData.innerHTML = toyList;
     });
@@ -64,20 +64,31 @@ function newToyForm() {
 
  function toyTable() {
     return (`
-         <h1>Name</h1>
-         <h2>Quantity</h2>
-         <h2>Rating</h2>
-         <h2>Edit</h2>
+    <style>
+        .left   {text-align:left;}
+        .center {text-align:center;}
+        .right  {text-align:right;}
+    </style>
+
+    <table class="table">
+        
+    <tr>
+        <td class="left">Name</td>
+        <td class="center">Quantity</td>
+        <td class="right">Rating</td>
+    </tr>
+        </table>
 `)
 }
 
 Toy.prototype.showHTML = function() {
     return (`
     <style>
-    .left   {text-align:left;}
-    .center {text-align:center;}
-    .right  {text-align:right;}
-</style>
+        .left   {text-align:left;}
+        .center {text-align:center;}
+        .right  {text-align:right;}
+    </style>
+
     <ul>
     <table class="table">
          <tr>
