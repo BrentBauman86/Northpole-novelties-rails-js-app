@@ -14,11 +14,11 @@ function getToyList() {
         data.forEach(function(toys){
             let toy = new Toy(toys);
             let toyHTML = toy.showHTML();
-            toyList += toyHTML 
+            toyList = toyHTML 
         });
 
         let table = document.getElementById('toy-table');
-        table.innerHTML += toyTable();
+        table.innerHTML = toyTable();
         let toyData = document.getElementById('toys');
         toyData.innerHTML = toyList;
     });
@@ -33,7 +33,7 @@ function getToy() {
         let toyDetails = toy.showHTML();
 
         let toyData = document.getElementById('show-toy')
-        toyData.toyDetails
+        toyData.innerHTML = toyDetails 
     });
 }
 
@@ -60,7 +60,6 @@ function newToyForm() {
     </form>
     `)
 }
-
 
  function toyTable() {
     return (`
