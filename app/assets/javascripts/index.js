@@ -28,12 +28,12 @@ function getToy() {
     let catId = $(".toy-details-js").attr("data-cat-id")
     let toyId = $(".toy-details-js").attr("data-toy-id")
     $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
-        console.log('ill take that...')
         let toy = new Toy(data);
-        let toyDetails = toy.showHTML();
+
+        let toyInfo = toy.toyDetails();
 
         let toyData = document.getElementById('show-toy')
-        toyData.innerHTML = toyDetails 
+        toyData.innerHTML = toyInfo;
     });
 }
 
@@ -46,7 +46,6 @@ class Toy {
         this.user_id = obj.user_id;
         this.category_id = obj.category_id
     }
-
 }
 
 function newToyForm() {
@@ -78,6 +77,17 @@ function newToyForm() {
     </tr>
         </table>
 `)
+}
+
+Toy.prototype.toyDetails = function() {
+    return (`
+    <h1>JS Toy Details</h1>
+
+    <h2>Name: ${this.name}</h2>
+    <h2>Quantity: ${this.quantity}</h2>
+    <h2>Rating: ${this.rating}</h2>
+      <br>
+    `)
 }
 
 Toy.prototype.showHTML = function() {
