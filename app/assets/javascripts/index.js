@@ -118,6 +118,17 @@ function toyFormClick() {
     })
 }
 
+function submitToyForm() {
+    $('#toy-form').on("submit", function(e) {
+    e.preventDefault();
+    let values = $(this).serialize();
+    $.post(`/categories/${catId}/toys`, values).done(function(data){
+        console.log('info')
+    })
+    console.log("submitting??")
+})
+}
+
 function listenForClick() {
     $('button#toy-data').on("click", function(e) {
         e.preventDefault()
