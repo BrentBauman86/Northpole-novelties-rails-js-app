@@ -3,6 +3,7 @@ $(function() {
     listenForClick();
     showToyClick();
     toyFormClick();
+    submitToyForm();
 });
 
 //using an ajax request for getToyList was causing a cross-origin request error
@@ -34,6 +35,7 @@ function getToy() {
 
         let toyData = document.getElementById('show-toy')
         toyData.innerHTML = toyInfo;
+        $('#js-app').html('')
     });
 }
 
@@ -118,15 +120,35 @@ function toyFormClick() {
     })
 }
 
+// function submitToyForm() {
+//     $('#toy-form').on("submit", function(e) {
+//     e.preventDefault();
+//     const values = $(this).serialize();
+//     const catId = $(".toy-details-js").attr("data-cat-id");
+//     $.post(`${window.origin}/categories/${catId}/toys`, values).done(function(data){
+//         console.log(data)
+//     })
+//     console.log(data)
+// })
+// }
+
 function submitToyForm() {
-    $('#toy-form').on("submit", function(e) {
-    e.preventDefault();
-    let values = $(this).serialize();
-    $.post(`/categories/${catId}/toys`, values).done(function(data){
-        console.log('info')
-    })
-    console.log("submitting??")
-})
+    $('#toy-form').submit(function(e) {
+      e.preventDefault();
+      let values = $(this).serialize();
+      let catId = $(".toy-details-js").attr("data-cat-id");
+      $.ajax({
+        type: "POST",
+        url: `/categories/${catId}/toys`,
+        data: values,
+        success: function (response) {
+          let toy = new Toy(response);
+          let toyHTML = toy.showHTML();
+          let table = document.getElementById('toy-table');
+          table.innerHTML += toyHTML;
+        }
+      });
+    });
 }
 
 function listenForClick() {
