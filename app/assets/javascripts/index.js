@@ -15,13 +15,14 @@ function getToyList() {
         data.forEach(function(toys){
             let toy = new Toy(toys);
             let toyHTML = toy.showHTML();
-            toyList = toyHTML 
+            toyList += toyHTML 
         });
 
         let table = document.getElementById('toy-table');
         table.innerHTML = toyTable();
         let toyData = document.getElementById('toys');
         toyData.innerHTML = toyList;
+        $('#js-app').html('')
     });
 }
 
