@@ -1,15 +1,15 @@
 $(function() {
     console.log("index.js is loaded...")
-    listenForClick();
+    toyListClick();
     showToyClick();
-    toyFormClick();
+    // toyFormClick();
     submitToyForm();
 });
 
 //using an ajax request for getToyList was causing a cross-origin request error
 
 function getToyList() {
-    $.getJSON(`/toys`, function (data) {
+    $.getJSON(`/toys`, function(data) {
         let toyList = "";
       
         data.forEach(function(toys){
@@ -29,7 +29,7 @@ function getToyList() {
 function getToy() {
     let catId = $(".toy-details-js").attr("data-cat-id")
     let toyId = $(".toy-details-js").attr("data-toy-id")
-    $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data){
+    $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data) {
         let toy = new Toy(data);
 
         let toyInfo = toy.toyDetails();
@@ -113,46 +113,50 @@ Toy.prototype.showHTML = function() {
     `)
 }
 
-function toyFormClick() {
-    $('button#toy-form').on("click", function(e) {
-        e.preventDefault()
-         let form = document.getElementById("toy-form")
-         form.innerHTML = newToyForm();
-    })
-}
-
-// function submitToyForm() {
-//     $('#toy-form').on("submit", function(e) {
-//     e.preventDefault();
-//     const values = $(this).serialize();
-//     const catId = $(".toy-details-js").attr("data-cat-id");
-//     $.post(`${window.origin}/categories/${catId}/toys`, values).done(function(data){
-//         console.log(data)
+// function toyFormClick() {
+//     $('button#toy-form').on("click", function(e) {
+//         e.preventDefault()
+//          let form = document.getElementById("toy-form")
+//          form.innerHTML = newToyForm();
 //     })
-//     console.log(data)
-// })
 // }
 
 function submitToyForm() {
-    $('#toy-form').submit(function(e) {
-      e.preventDefault();
-      let values = $(this).serialize();
-      let catId = $(".toy-details-js").attr("data-cat-id");
-      $.ajax({
-        type: "POST",
-        url: `/categories/${catId}/toys`,
-        data: values,
-        success: function (response) {
-          let toy = new Toy(response);
-          let toyHTML = toy.showHTML();
-          let table = document.getElementById('toy-table');
-          table.innerHTML += toyHTML;
-        }
-      });
-    });
+    $('#new_toy').on("submit", function(e) {
+    e.preventDefault();
+    
+    const values = $(this).serialize();
+    const catId = $(".toy-details-js").attr("data-cat-id");
+    $.post(`/categories/${catId}/toys`, values)
+        // $("js-app").html("")
+        
+        // const toy = new Toy(data);
+        // const toyInfo = toy.toyDetails();
+        // $("js-app").html(toyInfo)
+    
+})
 }
 
-function listenForClick() {
+// function submitToyForm() {
+//     $('#new_toy').submit(function(e) {
+//       e.preventDefault();
+//       let values = $(this).serialize();
+//       let catId = $(".toy-details-js").attr("data-cat-id");
+//       $.ajax({
+//         type: "POST",
+//         url: `/categories/${catId}/toys`,
+//         data: values,
+//         success: function (response) {
+//           let toy = new Toy(response);
+//           let toyHTML = toy.showHTML();
+//           let table = document.getElementById('toy-table');
+//           table.innerHTML += toyHTML;
+//         }
+//       });
+//     });
+// }
+
+function toyListClick() {
     $('button#toy-data').on("click", function(e) {
         e.preventDefault()
         getToyList();

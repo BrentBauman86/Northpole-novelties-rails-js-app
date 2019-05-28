@@ -36,14 +36,10 @@ class ToysController < ApplicationController
         @toy = @category.toys.build(toy_params)
         @toy.user_id = current_user.id 
         
-        respond_to do |format|
         if @toy.save
-            format.html {redirect_to category_path(@category), notice: "Thanks for building me"}
-            format.json {render json: @toy}
+            render json: @toy
         else
-            format.html {render :new}
-            format.json {render json: @toy}
-            end
+            render 'new'
         end
     end
 
