@@ -1,8 +1,8 @@
 $(function() {
     console.log("index.js is loaded...")
-    toyListClick();
+    listenForClick();
     showToyClick();
-    // toyFormClick();
+    toyFormClick();
     submitToyForm();
 });
 
@@ -29,6 +29,7 @@ function getToyList() {
 function getToy() {
     let catId = $(".toy-details-js").attr("data-cat-id")
     let toyId = $(".toy-details-js").attr("data-toy-id")
+
     $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data) {
         let toy = new Toy(data);
 
@@ -49,9 +50,9 @@ class Toy {
         this.user_id = obj.user_id;
         this.category_id = obj.category_id
     }
-}
 
-function newToyForm() {
+
+static newToyForm() {
     return (`
     <h1>New Toy Form</h1>
     <form>
@@ -61,6 +62,7 @@ function newToyForm() {
         <input type='submit' />
     </form>
     `)
+}
 }
 
  function toyTable() {
@@ -113,29 +115,47 @@ Toy.prototype.showHTML = function() {
     `)
 }
 
-// function toyFormClick() {
-//     $('button#toy-form').on("click", function(e) {
-//         e.preventDefault()
-//          let form = document.getElementById("toy-form")
-//          form.innerHTML = newToyForm();
-//     })
-// }
+function toyFormClick() {
+    $('button#toy-form').on("click", function(e) {
+        e.preventDefault()
+         let form = document.getElementById("toy-form")
+         form.innerHTML = newToyForm();
+    })
+}
 
 function submitToyForm() {
     $('#new_toy').on("submit", function(e) {
     e.preventDefault();
     
     const values = $(this).serialize();
-    const catId = $(".toy-details-js").attr("data-cat-id");
-    $.post(`/categories/${catId}/toys`, values)
-        // $("js-app").html("")
+    const catId = $(".details-js").attr("data-cat");
+    console.log(catId)
+    $.post(`/categories/${catId}/toys`, values).done(function(data){
+        console.log(data)
+        $("js-app").html("")
         
-        // const toy = new Toy(data);
-        // const toyInfo = toy.toyDetails();
-        // $("js-app").html(toyInfo)
-    
+        const toy = new Toy(data);
+        const toyInfo = toy.toyDetails();
+        $("js-app").html(toyInfo)
+    })
 })
 }
+
+// function submitToyForm() {
+//     $('#toy-form').on("submit", function(e) {
+//     e.preventDefault();
+    
+//     const values = $(this).serialize();
+//     const catId = $(".toy-details-js").attr("data-cat-id");
+//     $.post(`/categories/${catId}/toys`, values).done(function(data){
+//         $("js-app").html("")
+        
+//         const toy = new Toy(data);
+//         const toyInfo = toy.toyDetails();
+//         $("js-app").html(toyInfo)
+//     })
+// })
+// }
 
 // function submitToyForm() {
 //     $('#new_toy').submit(function(e) {
@@ -148,15 +168,14 @@ function submitToyForm() {
 //         data: values,
 //         success: function (response) {
 //           let toy = new Toy(response);
-//           let toyHTML = toy.showHTML();
-//           let table = document.getElementById('toy-table');
-//           table.innerHTML += toyHTML;
+//           let toyHTML = toy.toyDetails();
+//           $("js-app").html(toyHTML)
 //         }
 //       });
 //     });
 // }
 
-function toyListClick() {
+function listenForClick() {
     $('button#toy-data').on("click", function(e) {
         e.preventDefault()
         getToyList();

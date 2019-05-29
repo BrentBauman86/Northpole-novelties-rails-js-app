@@ -14,7 +14,7 @@
          
         <% @category.toys.each do |toy| %>
          <tr>
-             <td><li><a href="" class="toy-details-js" data-toy-id="<%= @category.toys.ids[0]%>" data-cat-id="<%= @category.id%>"><%= toy.name%></a>
+             <td><li><a href="" class="toy-details-js" data-toy-id="<%= @category.toys.ids[0]%>" data-cat-id="<%= @category.id%>"><%= toy.name %></a>
              </li></td>             
              <td><%= toy.quantity %></td>
              <td><%= toy.rating %></td>
