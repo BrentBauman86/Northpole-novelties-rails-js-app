@@ -129,14 +129,12 @@ function submitToyForm() {
     
     const values = $(this).serialize();
     const catId = $(".details-js").attr("data-cat");
-    console.log(catId)
     $.post(`/categories/${catId}/toys`, values).done(function(data){
-        console.log(data)
-        $("js-app").html("")
+        $("#js-app").html("")
         
         const toy = new Toy(data);
         const toyInfo = toy.toyDetails();
-        $("js-app").html(toyInfo)
+        $("#js-app").html(toyInfo)
     })
 })
 }
