@@ -48,15 +48,17 @@ window.fbAsyncInit = function() {
 </nav>
     </head>
   <body><br>
+  <% if current_user %>
   <h1>JavaScript Toys</h1>
   <div id='toy-table'>[toy header...]</div>
   <div id='toys'>[toys...]</div>
-  <div id='toy-form'>[toy form...]</div>
   <div id='show-toy'>[toy...]</div>
+  <div id="new-toy">[newjs toy...]</div>
+  <%end%>
 
+  </html>
     <%= render_flash_messages %>
     <div id="js-app">
     <%= yield %>
     <div>
 </body>
-  </html>
