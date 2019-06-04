@@ -1,14 +1,14 @@
-# North-Pole-Novelties-Rails-js-app
+# North-Pole-Novelties-Rails-app
 
-Welcome to North Pole Novelties, where you can come and build your own toys and if you're lucky you might even get a glimpse of Santa delivering them to all the good little boys and girls in your neighborhood.  This app has gotten a new js facelift, it still has all the fun of the original rails app but with a brand new js frontend!       
+Welcome to North Pole Novelties, where you can come and build your own toys and if you're lucky you might even get a glimpse of Santa delivering them to all the good little boys and girls in your neighborhood.
 
 # Installation
 
 In order to run this application, simply do the followinng:
 
-* First: git clone git@github.com:BrentBauman86/Northpole-novelties-rails-js-app.git
+* First: git clone git@github.com:BrentBauman86/Northpole-novelties-rails-app.git
 
-* Next: cd Northpole-novelties-rails-js-app
+* Next: cd Northpole-novelties-rails-app
 
 * Next: bundle install 
 
