@@ -1,6 +1,6 @@
 # North-Pole-Novelties-Rails-app
 
-Welcome to North Pole Novelties, where you can come and build your own toys and if you're lucky you might even get a glimpse of Santa delivering them to all the good little boys and girls in your neighborhood!       
+Welcome to North Pole Novelties, where you can come and build your own toys and if you're lucky you might even get a glimpse of Santa delivering them to all the good little boys and girls in your neighborhood.
 
 # Installation
 
@@ -12,7 +12,7 @@ In order to run this application, simply do the followinng:
 
 * Next: bundle install 
 
-* Lastly: in terminal run thin start --ssl in the terminal
+* Lastly: in terminal run rails s in the terminal
 
 # Contributing 
 
