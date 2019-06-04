@@ -30,8 +30,8 @@ function getToy() {
     let toyId = $(".toy-details-js").attr("data-toy-id")
 
     $.getJSON(`/categories/${catId}/toys/${toyId}`, function(data) {
+        
         let toy = new Toy(data);
-
         let toyInfo = toy.toyDetails();
 
         let toyData = document.getElementById('show-toy')
